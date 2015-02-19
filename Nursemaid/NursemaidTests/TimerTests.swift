@@ -3,24 +3,19 @@ import Nursemaid
 
 class TimerTests: XCTestCase {
 
-  // Seconds
+  // Elapsed
 
-  func testSecondsStartAt0() {
-    let t = Timer()
-    XCTAssertEqual(t.seconds, 0)
+  func testElapsedStartAt0() {
+    let timer = Timer()
+    XCTAssertEqual(timer.elapsed, 0.0)
   }
 
   // Running
 
-  func testRunningOnInit() {
-    let timer = Timer()
-    XCTAssertFalse(timer.running())
-  }
-
   func testRunningWhenStarted() {
     let expect = expectationWithDescription("Waiting for tick")
 
-    let timer = Timer() {
+    let timer = Timer() { sec in
       expect.fulfill()
     }
     timer.start()
@@ -31,32 +26,32 @@ class TimerTests: XCTestCase {
     }
   }
 
-  func testRunningWhenStopped() {
-    let expect = expectationWithDescription("Waiting for tick")
-    let timer = Timer() {
-      expect.fulfill()
-    }
-    timer.start()
+  func testNotRunningOnInit() {
+    let timer = Timer()
+    XCTAssertFalse(timer.running())
+  }
 
-    waitForExpectationsWithTimeout(5) { err in
-      timer.stop()
-      XCTAssertFalse(timer.running())
-    }
+  func testNotRunningWhenStopped() {
+    let timer = Timer()
+    timer.start()
+    timer.stop()
+    XCTAssertFalse(timer.running())
   }
 
   // Update
 
-  func testUpdateIncrementsSeconds() {
+  func testUpdateIncrementsElapsed() {
     let expect = expectationWithDescription("Waiting for tick")
 
-    let timer = Timer() {
+    let timer = Timer() { sec in
       expect.fulfill()
     }
+    timer.delay = 0.1
     timer.start()
 
     waitForExpectationsWithTimeout(5) { err in
       timer.stop()
-      XCTAssertEqual(timer.seconds, 1)
+      XCTAssertEqual(timer.elapsed, 0.1)
     }
   }
 

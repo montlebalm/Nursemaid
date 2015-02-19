@@ -2,32 +2,54 @@ import Foundation
 
 public class Timer {
 
-  public var seconds = 0
+  /// The delay between ticks. Defaults to 1.0
+  public var delay = 1.0
 
-  var timer: NSTimer
-  var onTick: () -> ()
+  /// The amount of time that has passed since the timer started
+  public var elapsed = 0.0
 
-  public init(update: (() -> ())? = nil) {
-    onTick = update != nil ? update! : {}
-    timer = NSTimer()
+  /// The function that runs on every update
+  var tick: ((Double) -> ())?
+
+  /// Internal timer
+  var timer: NSTimer?
+
+  public init(onTick: ((Double) -> ())? = nil) {
+    tick = onTick
   }
 
+  /// Starts the timer
   public func start() {
     stop()
-    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick", userInfo: nil, repeats: true)
+
+    timer = NSTimer.scheduledTimerWithTimeInterval(
+      NSTimeInterval(delay),
+      target: self,
+      selector: "onTick",
+      userInfo: nil,
+      repeats: true
+    )
   }
 
+  /// Stops the timer
   public func stop() {
-    timer.invalidate()
+    if timer != nil {
+      timer!.invalidate()
+    }
   }
 
+  /// Indicates whether the timer is currently running
+  /// :return: true if the the timer is running
   public func running() -> Bool {
-    return timer.valid
+    return timer != nil ? timer!.valid : false
   }
 
-  @objc func tick() {
-    seconds += 1
-    onTick()
+  @objc func onTick() {
+    elapsed += delay
+
+    if tick != nil {
+      tick!(elapsed)
+    }
   }
 
   deinit {
