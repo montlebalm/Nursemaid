@@ -14,6 +14,10 @@
 		5C0E6E311A958AE000222635 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E301A958AE000222635 /* Images.xcassets */; };
 		5C0E6E341A958AE000222635 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E321A958AE000222635 /* LaunchScreen.xib */; };
 		5C0E6E401A958AE000222635 /* NursemaidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E3F1A958AE000222635 /* NursemaidTests.swift */; };
+		5C0E6E4D1A958DB100222635 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0E6E4B1A958D8300222635 /* Nimble.framework */; };
+		5C0E6E4E1A958DB100222635 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0E6E491A958D8100222635 /* Quick.framework */; };
+		5C0E6E501A958DD300222635 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C0E6E4B1A958D8300222635 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C0E6E511A958DD700222635 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C0E6E491A958D8100222635 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +29,20 @@
 			remoteInfo = Nursemaid;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5C0E6E4F1A958DC000222635 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5C0E6E511A958DD700222635 /* Quick.framework in CopyFiles */,
+				5C0E6E501A958DD300222635 /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C0E6E221A958AE000222635 /* Nursemaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nursemaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +56,8 @@
 		5C0E6E391A958AE000222635 /* NursemaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NursemaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0E6E3E1A958AE000222635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C0E6E3F1A958AE000222635 /* NursemaidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursemaidTests.swift; sourceTree = "<group>"; };
+		5C0E6E491A958D8100222635 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		5C0E6E4B1A958D8300222635 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C0E6E4D1A958DB100222635 /* Nimble.framework in Frameworks */,
+				5C0E6E4E1A958DB100222635 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +83,8 @@
 		5C0E6E191A958AE000222635 = {
 			isa = PBXGroup;
 			children = (
+				5C0E6E4B1A958D8300222635 /* Nimble.framework */,
+				5C0E6E491A958D8100222635 /* Quick.framework */,
 				5C0E6E241A958AE000222635 /* Nursemaid */,
 				5C0E6E3C1A958AE000222635 /* NursemaidTests */,
 				5C0E6E231A958AE000222635 /* Products */,
@@ -142,6 +166,7 @@
 				5C0E6E351A958AE000222635 /* Sources */,
 				5C0E6E361A958AE000222635 /* Frameworks */,
 				5C0E6E371A958AE000222635 /* Resources */,
+				5C0E6E4F1A958DC000222635 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -343,6 +368,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chrismontrois/Development/personal/nursemaid/Carthage/Build/iOS,
+				);
 				INFOPLIST_FILE = Nursemaid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -356,6 +385,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chrismontrois/Development/personal/nursemaid/Carthage/Build/iOS,
+				);
 				INFOPLIST_FILE = Nursemaid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,6 +403,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/chrismontrois/Development/personal/nursemaid/Carthage/Build/iOS,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -389,6 +423,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/chrismontrois/Development/personal/nursemaid/Carthage/Build/iOS,
 				);
 				INFOPLIST_FILE = NursemaidTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
