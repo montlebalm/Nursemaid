@@ -18,6 +18,7 @@ class TimerTests: XCTestCase {
     let timer = Timer() { sec in
       expect.fulfill()
     }
+    timer.delay = 0.1
     timer.start()
 
     waitForExpectationsWithTimeout(5) { err in
