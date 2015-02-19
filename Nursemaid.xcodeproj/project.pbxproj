@@ -479,6 +479,7 @@
 				5C0E6E451A958AE000222635 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C0E6E461A958AE000222635 /* Build configuration list for PBXNativeTarget "NursemaidTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +488,7 @@
 				5C0E6E481A958AE000222635 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
