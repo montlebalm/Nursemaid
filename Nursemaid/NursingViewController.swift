@@ -2,26 +2,30 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
-  @IBOutlet weak var leftBreastButton: UIButton!
-  @IBOutlet weak var leftElapsedLabel: UILabel!
-  @IBOutlet weak var rightBreastButton: UIButton!
-  @IBOutlet weak var rightElapsedLabel: UILabel!
-  @IBOutlet weak var totalElapsedLabel: UILabel!
-  @IBOutlet weak var sessionStartLabel: UILabel!
-  @IBOutlet weak var todayLeftElapsed: UILabel!
-  @IBOutlet weak var todayRightElapsed: UILabel!
-  @IBOutlet weak var saveButton: UIBarButtonItem!
-  @IBOutlet weak var resetButton: UIBarButtonItem!
-
   var leftTimer: Timer!
   var rightTimer: Timer!
   var session: BreastFeeding!
   let sessionDateFormatter = NSDateFormatter()
 
+  @IBOutlet weak var leftBreastButton: UIButton!
+  @IBOutlet weak var leftElapsedLabel: UILabel!
+  @IBOutlet weak var rightBreastButton: UIButton!
+  @IBOutlet weak var rightElapsedLabel: UILabel!
+
+  @IBOutlet weak var sessionStartLabel: UILabel!
+  @IBOutlet weak var totalElapsedLabel: UILabel!
+
+  @IBOutlet weak var lastEndTimeLabel: UILabel!
+  @IBOutlet weak var lastSideLabel: UILabel!
+  @IBOutlet weak var lastTotalTimeLabel: UILabel!
+
+  @IBOutlet weak var resetButton: UIBarButtonItem!
+  @IBOutlet weak var saveButton: UIBarButtonItem!
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    sessionDateFormatter.timeStyle = .MediumStyle
+    sessionDateFormatter.timeStyle = .ShortStyle
 
     styleViews()
     reset()
@@ -41,19 +45,19 @@ class FirstViewController: UIViewController {
       sessionStartLabel.text = sessionDateFormatter.stringFromDate(session.startTime!)
     }
 
-    if saveButton.enabled == false {
+    if !saveButton.enabled {
       saveButton.enabled = true
     }
 
     if active.timer.running() {
       active.timer.stop()
-      active.button.setTitle("Start " + active.label, forState: UIControlState.Normal)
+      active.button.setTitle("Nurse on " + active.label, forState: UIControlState.Normal)
     } else {
       active.timer.start()
       active.button.setTitle("Stop " + active.label, forState: UIControlState.Normal)
 
       inactive.timer.stop()
-      inactive.button.setTitle("Start " + inactive.label, forState: UIControlState.Normal)
+      inactive.button.setTitle("Nurse on " + inactive.label, forState: UIControlState.Normal)
     }
   }
 
@@ -69,6 +73,10 @@ class FirstViewController: UIViewController {
     rightElapsedLabel.text = formatElapsed(0)
     totalElapsedLabel.text = formatElapsed(0)
     sessionStartLabel.text = "--"
+
+    lastEndTimeLabel.text = "--"
+    lastSideLabel.text = "--"
+    lastTotalTimeLabel.text = "0:00"
 
     saveButton.enabled = false
   }
@@ -117,7 +125,7 @@ class FirstViewController: UIViewController {
     session.leftBreastSeconds = Int(leftTimer.elapsed)
     session.rightBreastSeconds = Int(rightTimer.elapsed)
 
-    // Save session
+    // TODO: Save session
 
     reset()
   }
