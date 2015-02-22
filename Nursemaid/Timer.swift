@@ -33,23 +33,18 @@ public class Timer {
 
   /// Stops the timer
   public func stop() {
-    if timer != nil {
-      timer!.invalidate()
-    }
+    timer?.invalidate()
   }
 
   /// Indicates whether the timer is currently running
   /// :return: true if the the timer is running
   public func running() -> Bool {
-    return timer != nil ? timer!.valid : false
+    return timer?.valid ?? false
   }
 
   @objc func onTick() {
     elapsed += delay
-
-    if tick != nil {
-      tick!(elapsed)
-    }
+    tick?(elapsed)
   }
 
   deinit {
