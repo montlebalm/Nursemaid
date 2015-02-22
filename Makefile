@@ -1,4 +1,4 @@
-PROJECT_PATH?=Nursemaid/Nursemaid.xcodeproj
+PROJECT_PATH?=Nursemaid.xcodeproj
 PROJECT_NAME?=Nursemaid
 
 test:
