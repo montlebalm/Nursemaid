@@ -9,12 +9,12 @@ public class Timer {
   public var elapsed = 0.0
 
   /// The function that runs on every update
-  var tick: ((Double) -> ())?
+  var tick: ((NSTimeInterval) -> ())?
 
   /// Internal timer
   var timer: NSTimer?
 
-  public init(onTick: ((Double) -> ())? = nil) {
+  public init(onTick: ((NSTimeInterval) -> ())? = nil) {
     tick = onTick
   }
 

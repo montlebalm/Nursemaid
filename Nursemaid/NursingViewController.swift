@@ -5,19 +5,17 @@ class FirstViewController: UIViewController {
   var leftTimer: Timer!
   var rightTimer: Timer!
   var session: BreastFeeding!
-  let sessionDateFormatter = NSDateFormatter()
+  let timeOfDayFormatter = NSDateFormatter()
 
   @IBOutlet weak var leftBreastButton: UIButton!
   @IBOutlet weak var leftElapsedLabel: UILabel!
   @IBOutlet weak var rightBreastButton: UIButton!
   @IBOutlet weak var rightElapsedLabel: UILabel!
-
-  @IBOutlet weak var sessionStartLabel: UILabel!
   @IBOutlet weak var totalElapsedLabel: UILabel!
 
-  @IBOutlet weak var lastEndTimeLabel: UILabel!
   @IBOutlet weak var lastSideLabel: UILabel!
-  @IBOutlet weak var lastTotalTimeLabel: UILabel!
+  @IBOutlet weak var lastLeftElapsedLabel: UILabel!
+  @IBOutlet weak var lastRightElapsedLabel: UILabel!
 
   @IBOutlet weak var resetButton: UIBarButtonItem!
   @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -25,7 +23,7 @@ class FirstViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    sessionDateFormatter.timeStyle = .ShortStyle
+    timeOfDayFormatter.timeStyle = .ShortStyle
 
     styleViews()
     reset()
@@ -36,19 +34,25 @@ class FirstViewController: UIViewController {
     totalElapsedLabel.text = formatElapsed(leftTimer.elapsed + rightTimer.elapsed)
   }
 
-  func toggleBreastButton(
+  func toggleTimer(
     active: (button: UIButton, timer: Timer, label: String),
     inactive: (button: UIButton, timer: Timer, label: String)
   ) {
     if session.startTime == nil {
       session.startTime = NSDate()
-      sessionStartLabel.text = sessionDateFormatter.stringFromDate(session.startTime!)
     }
 
     if !saveButton.enabled {
       saveButton.enabled = true
     }
 
+    toggleBreastButton(active, inactive: inactive)
+  }
+
+  func toggleBreastButton(
+    active: (button: UIButton, timer: Timer, label: String),
+    inactive: (button: UIButton, timer: Timer, label: String)
+  ) {
     if active.timer.running() {
       active.timer.stop()
       active.button.setTitle("Nurse on " + active.label, forState: UIControlState.Normal)
@@ -72,11 +76,8 @@ class FirstViewController: UIViewController {
     leftElapsedLabel.text = formatElapsed(0)
     rightElapsedLabel.text = formatElapsed(0)
     totalElapsedLabel.text = formatElapsed(0)
-    sessionStartLabel.text = "--"
 
-    lastEndTimeLabel.text = "--"
     lastSideLabel.text = "--"
-    lastTotalTimeLabel.text = "0:00"
 
     saveButton.enabled = false
   }
@@ -104,7 +105,7 @@ class FirstViewController: UIViewController {
   // @IBActions
 
   @IBAction func leftBreastPressed(sender: UIButton) {
-    toggleBreastButton(
+    toggleTimer(
       (leftBreastButton, leftTimer, "Left"),
       inactive: (rightBreastButton, rightTimer, "Right")
     )
@@ -122,8 +123,8 @@ class FirstViewController: UIViewController {
     rightTimer?.stop()
 
     session.endTime = NSDate()
-    session.leftBreastSeconds = Int(leftTimer.elapsed)
-    session.rightBreastSeconds = Int(rightTimer.elapsed)
+    session.leftElapsed = NSTimeInterval(leftTimer.elapsed)
+    session.rightElapsed = NSTimeInterval(rightTimer.elapsed)
 
     // TODO: Save session
 

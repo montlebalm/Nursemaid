@@ -2,11 +2,12 @@ import Foundation
 
 class BreastFeeding {
 
-  let id: String? = nil
-  var startTime: NSDate? = nil
-  var endTime: NSDate? = nil
-  var leftBreastSeconds = 0
-  var rightBreastSeconds = 0
+  let id: String?
+  var startTime: NSDate?
+  var endTime: NSDate?
+  var leftElapsed: NSTimeInterval?
+  var rightElapsed: NSTimeInterval?
+  var lastSide: Side?
 
   init() {}
 
