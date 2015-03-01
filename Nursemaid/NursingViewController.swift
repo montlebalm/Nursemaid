@@ -81,6 +81,27 @@ class FirstViewController: UIViewController {
     saveButton.enabled = false
   }
 
+  func saveFeeding() {
+    let lastSide = currentTimer! === leftTimer ? "l" : "r"
+
+    BreastFeeding.createInContext(
+      context!,
+      leftSeconds: Int(leftTimer.elapsed),
+      rightSeconds: Int(rightTimer.elapsed),
+      lastSide: lastSide,
+      startTime: startTime!,
+      endTime: NSDate()
+    )
+  }
+
+  func saveContext() {
+    var error : NSError?
+
+    if (context!.save(&error)) {
+      println(error?.localizedDescription)
+    }
+  }
+
   // Styling
 
   func styleViews() {
@@ -111,17 +132,8 @@ class FirstViewController: UIViewController {
   }
 
   @IBAction func savePressed(sender: UIBarButtonItem) {
-    let lastSide = currentTimer! === leftTimer ? "l" : "r"
-
-    BreastFeeding.createInContext(
-      context!,
-      leftSeconds: Int(leftTimer.elapsed),
-      rightSeconds: Int(rightTimer.elapsed),
-      lastSide: lastSide,
-      startTime: startTime!,
-      endTime: NSDate()
-    )
-
+    saveFeeding()
+    saveContext()
     reset()
   }
 
