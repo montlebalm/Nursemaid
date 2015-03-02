@@ -14,15 +14,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
     timeOfDayFormatter.dateStyle = .ShortStyle
     timeOfDayFormatter.timeStyle = .ShortStyle
-
-    BreastFeeding.createInContext(context!, leftSeconds: 950, rightSeconds: 700, lastSide: "r", startTime: NSDate(), endTime: NSDate())
-    BreastFeeding.createInContext(context!, leftSeconds: 800, rightSeconds: 650, lastSide: "l", startTime: NSDate(), endTime: NSDate())
-
-    fetchData()
   }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+
+    fetchData()
+    tableView.reloadData()
   }
 
   override func didReceiveMemoryWarning() {
@@ -35,6 +33,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
   func retrieveBreastFeedings() -> [BreastFeeding] {
     let fetch = NSFetchRequest(entityName: "BreastFeeding")
+
+    let sortDescriptor = NSSortDescriptor(key: "endTime", ascending: false)
+    fetch.sortDescriptors = [sortDescriptor]
+
     return context!.executeFetchRequest(fetch, error: nil) as? [BreastFeeding] ?? []
   }
 
@@ -46,8 +48,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let item = breastFeedings[indexPath.item] as BreastFeeding
-    let leftTime = TimeIntervalFormatter.format(Double(item.leftSideSeconds))
-    let rightTime = TimeIntervalFormatter.format(Double(item.rightSideSeconds))
+    let leftTime = TimeIntervalFormatter.format(Int(item.leftSideSeconds))
+    let rightTime = TimeIntervalFormatter.format(Int(item.rightSideSeconds))
 
     var cell = tableView.dequeueReusableCellWithIdentifier("historyTableCell") as HistoryTableCell
     cell.titleLabel.text = "(L) \(leftTime) (R) \(rightTime)"
@@ -62,8 +64,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
       let item = breastFeedings[indexPath.item]
-      context?.deleteObject(item)
       breastFeedings.removeAtIndex(indexPath.item)
+
+      // Remove the item from Core Data
+      context?.deleteObject(item)
+      context?.save()
 
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -71,7 +76,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
   // Protocol: UITableViewDelegate
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-  }
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
 
 }

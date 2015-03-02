@@ -6,6 +6,7 @@ class FirstViewController: UIViewController {
   let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
   var currentTimer: Timer?
   var leftTimer: Timer!
+  var previousFeeding: BreastFeeding?
   var rightTimer: Timer!
   var startTime: NSDate?
 
@@ -29,9 +30,39 @@ class FirstViewController: UIViewController {
     reset()
   }
 
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidLoad()
+
+    fetchData()
+
+    if previousFeeding != nil {
+      updatePreviousFeeding(previousFeeding!)
+    }
+  }
+
+  func fetchData() {
+    let fetch = NSFetchRequest(entityName: "BreastFeeding")
+    fetch.fetchLimit = 1
+
+    let sortDescriptor = NSSortDescriptor(key: "endTime", ascending: false)
+    fetch.sortDescriptors = [sortDescriptor]
+
+    if let result = context!.executeFetchRequest(fetch, error: nil) as? [BreastFeeding] {
+      if result.count == 1 {
+        previousFeeding = result[0]
+      }
+    }
+  }
+
   func updateElapsedLabel(label: UILabel)(elapsed: Double) {
-    label.text = TimeIntervalFormatter.format(elapsed)
-    totalElapsedLabel.text = TimeIntervalFormatter.format(leftTimer.elapsed + rightTimer.elapsed)
+    label.text = TimeIntervalFormatter.format(Int(elapsed))
+    totalElapsedLabel.text = TimeIntervalFormatter.format(Int(leftTimer.elapsed + rightTimer.elapsed))
+  }
+
+  func updatePreviousFeeding(feeding: BreastFeeding) {
+    lastSideLabel.text = feeding.lastSide == "l" ? "Left" : "Right"
+    lastLeftElapsedLabel.text = TimeIntervalFormatter.format(Int(feeding.leftSideSeconds))
+    lastRightElapsedLabel.text = TimeIntervalFormatter.format(Int(feeding.rightSideSeconds))
   }
 
   func toggleTimer(
@@ -94,14 +125,6 @@ class FirstViewController: UIViewController {
     )
   }
 
-  func saveContext() {
-    var error : NSError?
-
-    if (context!.save(&error)) {
-      println(error?.localizedDescription)
-    }
-  }
-
   // Styling
 
   func styleViews() {
@@ -133,12 +156,15 @@ class FirstViewController: UIViewController {
 
   @IBAction func savePressed(sender: UIBarButtonItem) {
     saveFeeding()
-    saveContext()
+    context?.save()
     reset()
+    fetchData()
+    updatePreviousFeeding(previousFeeding!)
   }
 
   @IBAction func resetPressed(sender: UIBarButtonItem) {
     reset()
+    updatePreviousFeeding(previousFeeding!)
   }
 
 }
