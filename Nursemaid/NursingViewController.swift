@@ -103,11 +103,16 @@ class FirstViewController: UIViewController {
     leftTimer = Timer(updateElapsedLabel(leftElapsedLabel))
     rightTimer = Timer(updateElapsedLabel(rightElapsedLabel))
 
+    leftBreastButton.setTitle("Nurse on Left", forState: UIControlState.Normal)
+    rightBreastButton.setTitle("Nurse on Right", forState: UIControlState.Normal)
+
     leftElapsedLabel.text = TimeIntervalFormatter.format(0)
     rightElapsedLabel.text = TimeIntervalFormatter.format(0)
     totalElapsedLabel.text = TimeIntervalFormatter.format(0)
 
     lastSideLabel.text = "--"
+    lastLeftElapsedLabel.text = TimeIntervalFormatter.format(0)
+    lastRightElapsedLabel.text = TimeIntervalFormatter.format(0)
 
     saveButton.enabled = false
   }
