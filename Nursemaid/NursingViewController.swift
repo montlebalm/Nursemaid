@@ -1,7 +1,7 @@
 import CoreData
 import UIKit
 
-class FirstViewController: UIViewController {
+class NursingViewController: UIViewController {
 
   let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
   var currentTimer: Timer?

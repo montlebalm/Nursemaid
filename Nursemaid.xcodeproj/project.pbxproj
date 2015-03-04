@@ -16,15 +16,12 @@
 		5C0E6E341A958AE000222635 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E321A958AE000222635 /* LaunchScreen.xib */; };
 		5C0E6E541A9591D800222635 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E531A9591D800222635 /* Timer.swift */; };
 		5C0E6E591A9593DB00222635 /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E571A9593DB00222635 /* TimerTests.swift */; };
-		5C7224E81A990DEF00AC2802 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; };
-		5C7224EA1A990E2900AC2802 /* Cartography.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C7224EC1A99766900AC2802 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; };
-		5C7224ED1A99766F00AC2802 /* Cartography.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C8085761AA020510062617A /* Nursemaid.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C8085741AA020510062617A /* Nursemaid.xcdatamodeld */; };
 		5C80857A1AA023F90062617A /* BottleFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8085791AA023F90062617A /* BottleFeeding.swift */; };
 		5C80857C1AA0242B0062617A /* BreastFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857B1AA0242B0062617A /* BreastFeeding.swift */; };
 		5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857E1AA030B40062617A /* HistoryTableCell.swift */; };
 		5C8085811AA04C2C0062617A /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */; };
+		5CCDAD001AA42C8F0045C45B /* BottlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDACFF1AA42C8F0045C45B /* BottlingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5C7224ED1A99766F00AC2802 /* Cartography.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5C7224EA1A990E2900AC2802 /* Cartography.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +69,12 @@
 		5C0E6E3E1A958AE000222635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C0E6E531A9591D800222635 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		5C0E6E571A9593DB00222635 /* TimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
-		5C7224E71A990DEF00AC2802 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
 		5C8085751AA020510062617A /* Nursemaid.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nursemaid.xcdatamodel; sourceTree = "<group>"; };
 		5C8085791AA023F90062617A /* BottleFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleFeeding.swift; sourceTree = "<group>"; };
 		5C80857B1AA0242B0062617A /* BreastFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeeding.swift; sourceTree = "<group>"; };
 		5C80857E1AA030B40062617A /* HistoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableCell.swift; sourceTree = "<group>"; };
 		5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
+		5CCDACFF1AA42C8F0045C45B /* BottlingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7224E81A990DEF00AC2802 /* Cartography.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7224EC1A99766900AC2802 /* Cartography.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +109,6 @@
 				5C0E6E241A958AE000222635 /* Nursemaid */,
 				5C0E6E3C1A958AE000222635 /* NursemaidTests */,
 				5C0E6E231A958AE000222635 /* Products */,
-				5C7224E71A990DEF00AC2802 /* Cartography.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +124,7 @@
 		5C0E6E241A958AE000222635 /* Nursemaid */ = {
 			isa = PBXGroup;
 			children = (
+				5C4FB0C41AA554460002758E /* Protocols */,
 				5C03AB311AA3DA9900E8277E /* Extensions */,
 				5C0E6E521A9591BA00222635 /* Helpers */,
 				5C0E6E5E1A963E2D00222635 /* Models */,
@@ -197,12 +190,20 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		5C4FB0C41AA554460002758E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		5C7224EB1A990E3D00AC2802 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				5C80857D1AA030930062617A /* Table cells */,
 				5C0E6E291A958AE000222635 /* NursingViewController.swift */,
 				5C0E6E2B1A958AE000222635 /* HistoryViewController.swift */,
+				5CCDACFF1AA42C8F0045C45B /* BottlingViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -322,6 +323,7 @@
 				5C0E6E2C1A958AE000222635 /* HistoryViewController.swift in Sources */,
 				5C0E6E281A958AE000222635 /* AppDelegate.swift in Sources */,
 				5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */,
+				5CCDAD001AA42C8F0045C45B /* BottlingViewController.swift in Sources */,
 				5C0E6E2A1A958AE000222635 /* NursingViewController.swift in Sources */,
 				5C80857A1AA023F90062617A /* BottleFeeding.swift in Sources */,
 				5C8085811AA04C2C0062617A /* TimeIntervalFormatter.swift in Sources */,
