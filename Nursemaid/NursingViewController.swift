@@ -3,7 +3,6 @@ import UIKit
 
 class NursingViewController: UIViewController {
 
-  let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
   var currentTimer: Timer?
   var leftTimer: Timer!
   var previousFeeding: BreastFeeding?
@@ -15,8 +14,9 @@ class NursingViewController: UIViewController {
   @IBOutlet weak var rightBreastButton: UIButton!
   @IBOutlet weak var rightElapsedLabel: UILabel!
   @IBOutlet weak var totalElapsedLabel: UILabel!
-
   @IBOutlet weak var lastSideLabel: UILabel!
+
+  @IBOutlet weak var lastLastSideLabel: UILabel!
   @IBOutlet weak var lastLeftElapsedLabel: UILabel!
   @IBOutlet weak var lastRightElapsedLabel: UILabel!
 
@@ -33,24 +33,18 @@ class NursingViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidLoad()
 
-    fetchData()
-
-    if previousFeeding != nil {
-      updatePreviousFeeding(previousFeeding!)
+    fetchData() {
+      self.updatePreviousFeeding(self.previousFeeding)
     }
   }
 
-  func fetchData() {
-    let fetch = NSFetchRequest(entityName: "BreastFeeding")
-    fetch.fetchLimit = 1
-
-    let sortDescriptor = NSSortDescriptor(key: "endTime", ascending: false)
-    fetch.sortDescriptors = [sortDescriptor]
-
-    if let result = context!.executeFetchRequest(fetch, error: nil) as? [BreastFeeding] {
-      if result.count == 1 {
-        previousFeeding = result[0]
+  func fetchData(callback: () -> ()) {
+    BreastFeedingSvc.last { err, result in
+      if err == nil {
+        self.previousFeeding = result
       }
+
+      callback()
     }
   }
 
@@ -59,16 +53,17 @@ class NursingViewController: UIViewController {
     totalElapsedLabel.text = TimeIntervalFormatter.format(Int(leftTimer.elapsed + rightTimer.elapsed))
   }
 
-  func updatePreviousFeeding(feeding: BreastFeeding) {
-    lastSideLabel.text = feeding.lastSide == "l" ? "Left" : "Right"
-    lastLeftElapsedLabel.text = TimeIntervalFormatter.format(Int(feeding.leftSideSeconds))
-    lastRightElapsedLabel.text = TimeIntervalFormatter.format(Int(feeding.rightSideSeconds))
+  func updatePreviousFeeding(previousFeeding: BreastFeeding?) {
+    if let feeding = previousFeeding {
+      lastLastSideLabel.text = feeding.lastSide == "l" ? "Left" : "Right"
+      lastLeftElapsedLabel.text = TimeIntervalFormatter.format(feeding.leftSideSeconds)
+      lastRightElapsedLabel.text = TimeIntervalFormatter.format(feeding.rightSideSeconds)
+    } else {
+      resetPreviousFeeding()
+    }
   }
 
-  func toggleTimer(
-    active: (button: UIButton, timer: Timer, label: String),
-    inactive: (button: UIButton, timer: Timer, label: String)
-  ) {
+  func toggleTimer(active: (button: UIButton, timer: Timer, label: String), inactive: (button: UIButton, timer: Timer, label: String)) {
     if startTime == nil {
       startTime = NSDate()
     }
@@ -78,13 +73,11 @@ class NursingViewController: UIViewController {
     }
 
     currentTimer = active.timer
+    lastSideLabel.text = currentTimer! === leftTimer ? "Left" : "Right"
     toggleBreastButton(active, inactive: inactive)
   }
 
-  func toggleBreastButton(
-    active: (button: UIButton, timer: Timer, label: String),
-    inactive: (button: UIButton, timer: Timer, label: String)
-  ) {
+  func toggleBreastButton(active: (button: UIButton, timer: Timer, label: String), inactive: (button: UIButton, timer: Timer, label: String)) {
     if active.timer.running() {
       active.timer.stop()
       active.button.setTitle("Nurse on " + active.label, forState: UIControlState.Normal)
@@ -109,25 +102,34 @@ class NursingViewController: UIViewController {
     leftElapsedLabel.text = TimeIntervalFormatter.format(0)
     rightElapsedLabel.text = TimeIntervalFormatter.format(0)
     totalElapsedLabel.text = TimeIntervalFormatter.format(0)
-
     lastSideLabel.text = "--"
-    lastLeftElapsedLabel.text = TimeIntervalFormatter.format(0)
-    lastRightElapsedLabel.text = TimeIntervalFormatter.format(0)
+
+    resetPreviousFeeding()
 
     saveButton.enabled = false
+  }
+
+  func resetPreviousFeeding() {
+    lastLeftElapsedLabel.text = TimeIntervalFormatter.format(0)
+    lastRightElapsedLabel.text = TimeIntervalFormatter.format(0)
+    lastLastSideLabel.text = "--"
   }
 
   func saveFeeding() {
     let lastSide = currentTimer! === leftTimer ? "l" : "r"
 
-    BreastFeeding.createInContext(
-      context!,
-      leftSeconds: Int(leftTimer.elapsed),
-      rightSeconds: Int(rightTimer.elapsed),
+    BreastFeedingSvc.create(
+      startTime!,
+      endTime: NSDate(),
       lastSide: lastSide,
-      startTime: startTime!,
-      endTime: NSDate()
-    )
+      leftSeconds: Int(leftTimer.elapsed),
+      rightSeconds: Int(rightTimer.elapsed)
+    ) { err, feeding in
+      if err == nil {
+        self.previousFeeding = feeding
+        self.updatePreviousFeeding(feeding)
+      }
+    }
   }
 
   // Styling
@@ -161,10 +163,11 @@ class NursingViewController: UIViewController {
 
   @IBAction func savePressed(sender: UIBarButtonItem) {
     saveFeeding()
-    context?.save()
     reset()
-    fetchData()
-    updatePreviousFeeding(previousFeeding!)
+
+    fetchData() {
+      self.updatePreviousFeeding(self.previousFeeding)
+    }
   }
 
   @IBAction func resetPressed(sender: UIBarButtonItem) {

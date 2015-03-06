@@ -4,7 +4,6 @@ import UIKit
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
   var breastFeedings = [BreastFeeding]()
-  let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
   let timeOfDayFormatter = NSDateFormatter()
 
   @IBOutlet weak var tableView: UITableView!
@@ -19,25 +18,19 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    fetchData()
-    tableView.reloadData()
+    fetchData() {
+      self.tableView.reloadData()
+    }
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
+  func fetchData(callback: () -> ()) {
+    BreastFeedingSvc.all { err, results in
+      if err == nil {
+        self.breastFeedings = results
+      }
 
-  func fetchData() {
-    breastFeedings = retrieveBreastFeedings()
-  }
-
-  func retrieveBreastFeedings() -> [BreastFeeding] {
-    let fetch = NSFetchRequest(entityName: "BreastFeeding")
-
-    let sortDescriptor = NSSortDescriptor(key: "endTime", ascending: false)
-    fetch.sortDescriptors = [sortDescriptor]
-
-    return context!.executeFetchRequest(fetch, error: nil) as? [BreastFeeding] ?? []
+      callback()
+    }
   }
 
   // Protocol: UITableViewDataSource
@@ -66,9 +59,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
       let item = breastFeedings[indexPath.item]
       breastFeedings.removeAtIndex(indexPath.item)
 
-      // Remove the item from Core Data
-      context?.deleteObject(item)
-      context?.save()
+      BreastFeedingSvc.remove(item.id) { err in
+      }
 
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
