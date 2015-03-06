@@ -26,7 +26,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   func fetchData(callback: () -> ()) {
     BreastFeedingSvc.all { err, results in
       if err == nil {
-        self.breastFeedings = results
+        self.breastFeedings = results.sorted { $0.endTime.timeIntervalSince1970 > $1.endTime.timeIntervalSince1970 }
       }
 
       callback()
