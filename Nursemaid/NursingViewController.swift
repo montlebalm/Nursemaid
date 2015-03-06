@@ -172,7 +172,7 @@ class NursingViewController: UIViewController {
 
   @IBAction func resetPressed(sender: UIBarButtonItem) {
     reset()
-    updatePreviousFeeding(previousFeeding!)
+    updatePreviousFeeding(previousFeeding)
   }
 
 }
