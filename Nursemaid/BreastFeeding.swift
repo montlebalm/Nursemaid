@@ -1,14 +1,15 @@
 import Foundation
 
-class BreastFeeding {
+public class BreastFeeding {
 
-  let id: String?
-  var startTime: NSDate?
-  var endTime: NSDate?
-  var leftElapsed: NSTimeInterval?
-  var rightElapsed: NSTimeInterval?
-  var lastSide: Side?
+  var id: String!
+  var userId: String!
+  var startTime: NSDate!
+  var endTime: NSDate!
+  var leftSideSeconds = 0
+  var rightSideSeconds = 0
+  var lastSide: String!
 
-  init() {}
+  public init() {}
 
 }

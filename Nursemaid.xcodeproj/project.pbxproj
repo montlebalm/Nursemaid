@@ -9,19 +9,20 @@
 /* Begin PBXBuildFile section */
 		5C0E6E281A958AE000222635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E271A958AE000222635 /* AppDelegate.swift */; };
 		5C0E6E2A1A958AE000222635 /* NursingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E291A958AE000222635 /* NursingViewController.swift */; };
-		5C0E6E2C1A958AE000222635 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E2B1A958AE000222635 /* SecondViewController.swift */; };
+		5C0E6E2C1A958AE000222635 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E2B1A958AE000222635 /* HistoryViewController.swift */; };
 		5C0E6E2F1A958AE000222635 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E2D1A958AE000222635 /* Main.storyboard */; };
 		5C0E6E311A958AE000222635 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E301A958AE000222635 /* Images.xcassets */; };
 		5C0E6E341A958AE000222635 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E321A958AE000222635 /* LaunchScreen.xib */; };
 		5C0E6E541A9591D800222635 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E531A9591D800222635 /* Timer.swift */; };
 		5C0E6E591A9593DB00222635 /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E571A9593DB00222635 /* TimerTests.swift */; };
-		5C7224E81A990DEF00AC2802 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; };
-		5C7224EA1A990E2900AC2802 /* Cartography.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C7224EC1A99766900AC2802 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; };
-		5C7224ED1A99766F00AC2802 /* Cartography.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C7224E71A990DEF00AC2802 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CA408EA1A9A5E4A00E45DF1 /* BreastFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA408E91A9A5E4A00E45DF1 /* BreastFeeding.swift */; };
-		5CA630821A9A7884005DC099 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA630811A9A7884005DC099 /* Side.swift */; };
-		5CA630851A9ABC63005DC099 /* BreastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA630841A9ABC63005DC099 /* BreastService.swift */; };
+		5C80857A1AA023F90062617A /* BottleFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8085791AA023F90062617A /* BottleFeeding.swift */; };
+		5C80857C1AA0242B0062617A /* BreastFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857B1AA0242B0062617A /* BreastFeeding.swift */; };
+		5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857E1AA030B40062617A /* HistoryTableCell.swift */; };
+		5C8085811AA04C2C0062617A /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */; };
+		5CD8DE2C1AAA2F5200490BA0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8DE2B1AAA2F5200490BA0 /* User.swift */; };
+		5CEDEE3A1AA6AAC400BBFE66 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */; };
+		5CEDEE3B1AA6AACA00BBFE66 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CEDEE3E1AA6AAF300BBFE66 /* BreastFeedingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEDEE3D1AA6AAF300BBFE66 /* BreastFeedingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5C7224ED1A99766F00AC2802 /* Cartography.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5C7224EA1A990E2900AC2802 /* Cartography.framework in CopyFiles */,
+				5CEDEE3B1AA6AACA00BBFE66 /* Alamofire.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 		5C0E6E261A958AE000222635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C0E6E271A958AE000222635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C0E6E291A958AE000222635 /* NursingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingViewController.swift; sourceTree = "<group>"; };
-		5C0E6E2B1A958AE000222635 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5C0E6E2B1A958AE000222635 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		5C0E6E2E1A958AE000222635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C0E6E301A958AE000222635 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C0E6E331A958AE000222635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -70,10 +70,13 @@
 		5C0E6E3E1A958AE000222635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C0E6E531A9591D800222635 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		5C0E6E571A9593DB00222635 /* TimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
-		5C7224E71A990DEF00AC2802 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
-		5CA408E91A9A5E4A00E45DF1 /* BreastFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeeding.swift; sourceTree = "<group>"; };
-		5CA630811A9A7884005DC099 /* Side.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
-		5CA630841A9ABC63005DC099 /* BreastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastService.swift; sourceTree = "<group>"; };
+		5C8085791AA023F90062617A /* BottleFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleFeeding.swift; sourceTree = "<group>"; };
+		5C80857B1AA0242B0062617A /* BreastFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeeding.swift; sourceTree = "<group>"; };
+		5C80857E1AA030B40062617A /* HistoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableCell.swift; sourceTree = "<group>"; };
+		5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
+		5CD8DE2B1AAA2F5200490BA0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		5CEDEE3D1AA6AAF300BBFE66 /* BreastFeedingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeedingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7224E81A990DEF00AC2802 /* Cartography.framework in Frameworks */,
+				5CEDEE3A1AA6AAC400BBFE66 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7224EC1A99766900AC2802 /* Cartography.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +104,7 @@
 				5C0E6E241A958AE000222635 /* Nursemaid */,
 				5C0E6E3C1A958AE000222635 /* NursemaidTests */,
 				5C0E6E231A958AE000222635 /* Products */,
-				5C7224E71A990DEF00AC2802 /* Cartography.framework */,
+				5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,11 +120,10 @@
 		5C0E6E241A958AE000222635 /* Nursemaid */ = {
 			isa = PBXGroup;
 			children = (
-				5CA630801A9A7872005DC099 /* Enums */,
+				5CEDEE3C1AA6AADA00BBFE66 /* Services */,
+				5C4FB0C41AA554460002758E /* Protocols */,
 				5C0E6E521A9591BA00222635 /* Helpers */,
 				5C0E6E5E1A963E2D00222635 /* Models */,
-				5C0E6E5F1A963F0A00222635 /* Protocols */,
-				5CA630831A9ABC12005DC099 /* Services */,
 				5C7224EB1A990E3D00AC2802 /* Views */,
 				5C0E6E271A958AE000222635 /* AppDelegate.swift */,
 				5C0E6E2D1A958AE000222635 /* Main.storyboard */,
@@ -162,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				5C0E6E531A9591D800222635 /* Timer.swift */,
+				5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -177,12 +179,14 @@
 		5C0E6E5E1A963E2D00222635 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5CA408E91A9A5E4A00E45DF1 /* BreastFeeding.swift */,
+				5C8085791AA023F90062617A /* BottleFeeding.swift */,
+				5C80857B1AA0242B0062617A /* BreastFeeding.swift */,
+				5CD8DE2B1AAA2F5200490BA0 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		5C0E6E5F1A963F0A00222635 /* Protocols */ = {
+		5C4FB0C41AA554460002758E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -192,24 +196,25 @@
 		5C7224EB1A990E3D00AC2802 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5C80857D1AA030930062617A /* Table cells */,
 				5C0E6E291A958AE000222635 /* NursingViewController.swift */,
-				5C0E6E2B1A958AE000222635 /* SecondViewController.swift */,
+				5C0E6E2B1A958AE000222635 /* HistoryViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		5CA630801A9A7872005DC099 /* Enums */ = {
+		5C80857D1AA030930062617A /* Table cells */ = {
 			isa = PBXGroup;
 			children = (
-				5CA630811A9A7884005DC099 /* Side.swift */,
+				5C80857E1AA030B40062617A /* HistoryTableCell.swift */,
 			);
-			name = Enums;
+			name = "Table cells";
 			sourceTree = "<group>";
 		};
-		5CA630831A9ABC12005DC099 /* Services */ = {
+		5CEDEE3C1AA6AADA00BBFE66 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5CA630841A9ABC63005DC099 /* BreastService.swift */,
+				5CEDEE3D1AA6AAF300BBFE66 /* BreastFeedingService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -317,13 +322,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C0E6E2C1A958AE000222635 /* SecondViewController.swift in Sources */,
+				5CEDEE3E1AA6AAF300BBFE66 /* BreastFeedingService.swift in Sources */,
+				5C80857C1AA0242B0062617A /* BreastFeeding.swift in Sources */,
+				5C0E6E2C1A958AE000222635 /* HistoryViewController.swift in Sources */,
 				5C0E6E281A958AE000222635 /* AppDelegate.swift in Sources */,
-				5CA630821A9A7884005DC099 /* Side.swift in Sources */,
+				5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */,
 				5C0E6E2A1A958AE000222635 /* NursingViewController.swift in Sources */,
+				5C80857A1AA023F90062617A /* BottleFeeding.swift in Sources */,
+				5C8085811AA04C2C0062617A /* TimeIntervalFormatter.swift in Sources */,
+				5CD8DE2C1AAA2F5200490BA0 /* User.swift in Sources */,
 				5C0E6E541A9591D800222635 /* Timer.swift in Sources */,
-				5CA630851A9ABC63005DC099 /* BreastService.swift in Sources */,
-				5CA408EA1A9A5E4A00E45DF1 /* BreastFeeding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
