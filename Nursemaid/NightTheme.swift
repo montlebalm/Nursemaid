@@ -12,7 +12,9 @@ struct NightTheme: AppTheme {
   var TextSecondary = Colors.WhiteMedium
   var TextTertiary = Colors.BlackLight
 
-  init() {
+  init() {}
+
+  func activate() {
     let app = UIApplication.sharedApplication()
     app.statusBarStyle = UIStatusBarStyle.BlackOpaque
 
@@ -20,5 +22,7 @@ struct NightTheme: AppTheme {
     tab.barTintColor = BackgroundSecondary
     tab.selectedImageTintColor = HighlightTertiary
   }
+
+  func deactivate() {}
 
 }

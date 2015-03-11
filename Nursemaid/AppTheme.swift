@@ -12,4 +12,8 @@ protocol AppTheme {
   var TextSecondary: UIColor { get }
   var TextTertiary: UIColor { get }
 
+  func activate()
+
+  func deactivate()
+
 }

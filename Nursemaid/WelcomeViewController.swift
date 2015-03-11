@@ -1,23 +1,17 @@
 import UIKit
 
-let isFirstLoad = true
+class WelcomeViewController: UIViewController, Themeable {
 
-class WelcomeViewController: UIViewController {
+  @IBOutlet weak var titleLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Skip login for development
-    if let userId = ENV["USER_ID"] as? String {
-      let username = ENV["USER_EMAIL"] as String
-      let password = ENV["USER_PASSWORD"] as String
-
-      CurrentUser = User(id: userId, email: username, password: password)
-    }
   }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+
+    applyTheme()
 
     if !isFirstLoad {
       performSegueWithIdentifier("goto_login", sender: self)
@@ -26,8 +20,12 @@ class WelcomeViewController: UIViewController {
     }
   }
 
+  func applyTheme() {
+    let theme = Appearance.theme
+  }
+
   @IBAction func skipPressed(sender: UIButton) {
-    performSegueWithIdentifier("goto_main", sender: self)
+    performSegueWithIdentifier("goto_login", sender: self)
   }
 
 }

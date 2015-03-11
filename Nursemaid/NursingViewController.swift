@@ -43,7 +43,7 @@ class NursingViewController: UIViewController {
   }
 
   override func viewDidAppear(animated: Bool) {
-    super.viewDidLoad()
+    super.viewDidAppear(animated)
 
     applyTheme()
 

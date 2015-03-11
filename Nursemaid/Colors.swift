@@ -28,7 +28,7 @@ struct Colors {
 
   static let PinkLight = colorFromHex("fb806d")
   static let PinkMedium = colorFromHex("f6775b")
-  static let PinkDark = colorFromHex("de5e6b")
+  static let PinkDark = colorFromHex("915656")
 
   static let BlueLight = colorFromHex("9cc9f9")
   static let BlueMedium = colorFromHex("007aff")

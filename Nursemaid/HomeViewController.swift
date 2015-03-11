@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Themeable {
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -8,6 +8,12 @@ class HomeViewController: UIViewController {
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+
+    applyTheme()
+  }
+
+  func applyTheme() {
+    let theme = Appearance.theme
   }
 
 }

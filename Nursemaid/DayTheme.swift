@@ -2,9 +2,9 @@ import UIKit
 
 struct DayTheme: AppTheme {
 
-  var BackgroundPrimary = Colors.WhiteLight
-  var BackgroundSecondary = Colors.WhiteMedium
-  var BackgroundTertiary = Colors.WhiteDark
+  var BackgroundPrimary = UIColor.whiteColor()
+  var BackgroundSecondary = Colors.WhiteLight
+  var BackgroundTertiary = Colors.WhiteMedium
   var HighlightPrimary = Colors.BlueMedium
   var HighlightSecondary = Colors.BlueLight
   var HighlightTertiary = Colors.BlueDark
@@ -12,7 +12,9 @@ struct DayTheme: AppTheme {
   var TextSecondary = Colors.BlackMedium
   var TextTertiary = Colors.WhiteDark
 
-  init() {
+  init() {}
+
+  func activate() {
     let app = UIApplication.sharedApplication()
     app.statusBarStyle = UIStatusBarStyle.LightContent
 
@@ -20,5 +22,7 @@ struct DayTheme: AppTheme {
     tab.barTintColor = BackgroundSecondary
     tab.selectedImageTintColor = HighlightTertiary
   }
+
+  func deactivate() {}
 
 }

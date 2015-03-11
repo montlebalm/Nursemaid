@@ -5,6 +5,8 @@ let ENV = NSProcessInfo.processInfo().environment
 let SERVER = ENV["API_SERVER"] as String
 let SERVER_VERSION = ENV["API_VERSION"] as String
 
+var isFirstLoad = ENV["IS_FIRST_LOAD"] as String? != "false"
+
 var BreastFeedingSvc = BreastFeedingService()
 var Settings = AppSettings()
 
