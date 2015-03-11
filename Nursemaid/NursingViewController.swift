@@ -1,4 +1,3 @@
-import CoreData
 import UIKit
 
 class NursingViewController: UIViewController {
@@ -23,6 +22,19 @@ class NursingViewController: UIViewController {
   @IBOutlet weak var resetButton: UIBarButtonItem!
   @IBOutlet weak var saveButton: UIBarButtonItem!
 
+  @IBOutlet weak var mainView: UIView!
+  @IBOutlet weak var navigationBar: UINavigationBar!
+  @IBOutlet weak var navigationTitleItem: UINavigationItem!
+  @IBOutlet weak var currentSectionLabel: UILabel!
+  @IBOutlet weak var currentSectionView: UIView!
+  @IBOutlet weak var previousSectionLabel: UILabel!
+  @IBOutlet weak var previousSectionView: UIView!
+  @IBOutlet weak var currentTotalLabel: UILabel!
+  @IBOutlet weak var currentLastSideLabel: UILabel!
+  @IBOutlet weak var previousLastSideLabel: UILabel!
+  @IBOutlet weak var previousLeftLabel: UILabel!
+  @IBOutlet weak var previousRightLabel: UILabel!
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -33,13 +45,15 @@ class NursingViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidLoad()
 
+    applyTheme()
+
     fetchData() {
       self.updatePreviousFeeding(self.previousFeeding)
     }
   }
 
   func fetchData(callback: () -> ()) {
-    BreastFeedingSvc.last { err, result in
+    BreastFeedingSvc.last(CurrentUser) { err, result in
       if err == nil {
         self.previousFeeding = result
       }
@@ -119,7 +133,8 @@ class NursingViewController: UIViewController {
     let lastSide = currentTimer! === leftTimer ? "l" : "r"
 
     BreastFeedingSvc.create(
-      startTime!,
+      CurrentUser,
+      startTime: startTime!,
       endTime: NSDate(),
       lastSide: lastSide,
       leftSeconds: Int(leftTimer.elapsed),
@@ -132,7 +147,43 @@ class NursingViewController: UIViewController {
     }
   }
 
-  // Styling
+  // Styles
+
+  func applyTheme() {
+    let theme = Appearance.theme
+
+    leftBreastButton.tintColor = theme.HighlightPrimary
+    leftBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
+    leftElapsedLabel.textColor = theme.TextPrimary
+
+    rightBreastButton.tintColor = theme.HighlightPrimary
+    rightBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
+    rightElapsedLabel.textColor = theme.TextPrimary
+
+    totalElapsedLabel.textColor = theme.TextSecondary
+    lastSideLabel.textColor = theme.TextSecondary
+    currentTotalLabel.textColor = theme.TextPrimary
+    currentLastSideLabel.textColor = theme.TextPrimary
+    currentSectionView.backgroundColor = theme.BackgroundSecondary
+    currentSectionLabel.textColor = theme.TextTertiary
+
+    lastLastSideLabel.textColor = theme.TextSecondary
+    lastLeftElapsedLabel.textColor = theme.TextSecondary
+    lastRightElapsedLabel.textColor = theme.TextSecondary
+    previousLastSideLabel.textColor = theme.TextPrimary
+    previousLeftLabel.textColor = theme.TextPrimary
+    previousRightLabel.textColor = theme.TextPrimary
+    previousSectionView.backgroundColor = theme.BackgroundSecondary
+    previousSectionLabel.textColor = theme.TextTertiary
+
+    resetButton.tintColor = theme.HighlightPrimary
+    saveButton.tintColor = theme.HighlightPrimary
+
+    navigationBar.barTintColor = theme.BackgroundSecondary
+    navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: theme.TextPrimary]
+
+    mainView.backgroundColor = theme.BackgroundPrimary
+  }
 
   func styleViews() {
     styleBreastButton(leftBreastButton)

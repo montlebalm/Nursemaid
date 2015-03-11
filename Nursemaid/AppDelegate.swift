@@ -1,7 +1,15 @@
 import UIKit
 
+let ENV = NSProcessInfo.processInfo().environment
+
+let SERVER = ENV["API_SERVER"] as String
+let SERVER_VERSION = ENV["API_VERSION"] as String
+
+var BreastFeedingSvc = BreastFeedingService()
+var Settings = AppSettings()
+
 var CurrentUser: User!
-var BreastFeedingSvc: BreastFeedingService!
+var Appearance: AppearanceManager!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,10 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
-
-    CurrentUser = User(id: "u1", email: "mmontrois@gmail.com", password: "12345")
-    BreastFeedingSvc = BreastFeedingService(user: CurrentUser)
+    setupThemes()
 
     return true
   }
@@ -38,6 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+  }
+
+  // Private
+
+  private func setupThemes() {
+    let themes: [String: AppTheme] = [
+      "day": DayTheme(),
+      "night": NightTheme()
+    ]
+
+    Appearance = AppearanceManager(themes: themes) {
+      if Settings.autoSelectTheme {
+        return self.isDaytime(NSDate()) ? "day" : "night"
+      }
+
+      return Settings.selectedTheme
+    }
+  }
+
+  private func isDaytime(time: NSDate) -> Bool {
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components(.CalendarUnitHour, fromDate: time)
+    return components.hour < 18
   }
 
 }

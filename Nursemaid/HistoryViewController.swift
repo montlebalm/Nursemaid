@@ -1,7 +1,7 @@
 import CoreData
 import UIKit
 
-class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Themeable {
 
   var breastFeedings = [BreastFeeding]()
   let timeOfDayFormatter = NSDateFormatter()
@@ -18,19 +18,27 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
+    applyTheme()
+
     fetchData() {
       self.tableView.reloadData()
     }
   }
 
   func fetchData(callback: () -> ()) {
-    BreastFeedingSvc.all { err, results in
+    BreastFeedingSvc.all(CurrentUser) { err, results in
       if err == nil {
         self.breastFeedings = results.sorted { $0.endTime.timeIntervalSince1970 > $1.endTime.timeIntervalSince1970 }
       }
 
       callback()
     }
+  }
+
+  // Styles
+
+  func applyTheme() {
+    let theme = Appearance.theme
   }
 
   // Protocol: UITableViewDataSource
@@ -59,8 +67,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
       let item = breastFeedings[indexPath.item]
       breastFeedings.removeAtIndex(indexPath.item)
 
-      BreastFeedingSvc.remove(item.id) { err in
-      }
+      BreastFeedingSvc.remove(CurrentUser, id: item.id) { err in }
 
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }

@@ -1,6 +1,6 @@
 import Foundation
 
-public class BreastFeeding {
+struct BreastFeeding {
 
   var id: String!
   var userId: String!
@@ -9,7 +9,5 @@ public class BreastFeeding {
   var leftSideSeconds = 0
   var rightSideSeconds = 0
   var lastSide: String!
-
-  public init() {}
 
 }

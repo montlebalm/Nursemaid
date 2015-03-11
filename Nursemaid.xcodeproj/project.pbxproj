@@ -15,6 +15,16 @@
 		5C0E6E341A958AE000222635 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E321A958AE000222635 /* LaunchScreen.xib */; };
 		5C0E6E541A9591D800222635 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E531A9591D800222635 /* Timer.swift */; };
 		5C0E6E591A9593DB00222635 /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E571A9593DB00222635 /* TimerTests.swift */; };
+		5C6468341AAFD5E1002DE118 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6468331AAFD5E1002DE118 /* HomeViewController.swift */; };
+		5C6468361AAFD829002DE118 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6468351AAFD829002DE118 /* WelcomeViewController.swift */; };
+		5C6468381AAFD9E3002DE118 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6468371AAFD9E3002DE118 /* LogInViewController.swift */; };
+		5C70295F1AAA520900BA1D13 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70295E1AAA520900BA1D13 /* AppTheme.swift */; };
+		5C7029611AAA53BA00BA1D13 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029601AAA53BA00BA1D13 /* AppSettings.swift */; };
+		5C7029631AAA559000BA1D13 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029621AAA559000BA1D13 /* AppearanceManager.swift */; };
+		5C7029661AAA577100BA1D13 /* NightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029651AAA577100BA1D13 /* NightTheme.swift */; };
+		5C7029681AAA577900BA1D13 /* DayTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029671AAA577900BA1D13 /* DayTheme.swift */; };
+		5C70296B1AAA5C4600BA1D13 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70296A1AAA5C4600BA1D13 /* Colors.swift */; };
+		5C70296D1AAA9EFF00BA1D13 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70296C1AAA9EFF00BA1D13 /* Themeable.swift */; };
 		5C80857A1AA023F90062617A /* BottleFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8085791AA023F90062617A /* BottleFeeding.swift */; };
 		5C80857C1AA0242B0062617A /* BreastFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857B1AA0242B0062617A /* BreastFeeding.swift */; };
 		5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857E1AA030B40062617A /* HistoryTableCell.swift */; };
@@ -70,6 +80,16 @@
 		5C0E6E3E1A958AE000222635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C0E6E531A9591D800222635 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		5C0E6E571A9593DB00222635 /* TimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
+		5C6468331AAFD5E1002DE118 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5C6468351AAFD829002DE118 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		5C6468371AAFD9E3002DE118 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		5C70295E1AAA520900BA1D13 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		5C7029601AAA53BA00BA1D13 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		5C7029621AAA559000BA1D13 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
+		5C7029651AAA577100BA1D13 /* NightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightTheme.swift; sourceTree = "<group>"; };
+		5C7029671AAA577900BA1D13 /* DayTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTheme.swift; sourceTree = "<group>"; };
+		5C70296A1AAA5C4600BA1D13 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5C70296C1AAA9EFF00BA1D13 /* Themeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
 		5C8085791AA023F90062617A /* BottleFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleFeeding.swift; sourceTree = "<group>"; };
 		5C80857B1AA0242B0062617A /* BreastFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeeding.swift; sourceTree = "<group>"; };
 		5C80857E1AA030B40062617A /* HistoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableCell.swift; sourceTree = "<group>"; };
@@ -120,6 +140,7 @@
 		5C0E6E241A958AE000222635 /* Nursemaid */ = {
 			isa = PBXGroup;
 			children = (
+				5C7029691AAA5C3D00BA1D13 /* Constants */,
 				5CEDEE3C1AA6AADA00BBFE66 /* Services */,
 				5C4FB0C41AA554460002758E /* Protocols */,
 				5C0E6E521A9591BA00222635 /* Helpers */,
@@ -162,8 +183,10 @@
 		5C0E6E521A9591BA00222635 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5C7029641AAA55F000BA1D13 /* Themes */,
 				5C0E6E531A9591D800222635 /* Timer.swift */,
 				5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */,
+				5C7029621AAA559000BA1D13 /* AppearanceManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -182,6 +205,7 @@
 				5C8085791AA023F90062617A /* BottleFeeding.swift */,
 				5C80857B1AA0242B0062617A /* BreastFeeding.swift */,
 				5CD8DE2B1AAA2F5200490BA0 /* User.swift */,
+				5C7029601AAA53BA00BA1D13 /* AppSettings.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -189,8 +213,27 @@
 		5C4FB0C41AA554460002758E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				5C70295E1AAA520900BA1D13 /* AppTheme.swift */,
+				5C70296C1AAA9EFF00BA1D13 /* Themeable.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		5C7029641AAA55F000BA1D13 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				5C7029651AAA577100BA1D13 /* NightTheme.swift */,
+				5C7029671AAA577900BA1D13 /* DayTheme.swift */,
+			);
+			name = Themes;
+			sourceTree = "<group>";
+		};
+		5C7029691AAA5C3D00BA1D13 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5C70296A1AAA5C4600BA1D13 /* Colors.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		5C7224EB1A990E3D00AC2802 /* Views */ = {
@@ -199,6 +242,9 @@
 				5C80857D1AA030930062617A /* Table cells */,
 				5C0E6E291A958AE000222635 /* NursingViewController.swift */,
 				5C0E6E2B1A958AE000222635 /* HistoryViewController.swift */,
+				5C6468331AAFD5E1002DE118 /* HomeViewController.swift */,
+				5C6468351AAFD829002DE118 /* WelcomeViewController.swift */,
+				5C6468371AAFD9E3002DE118 /* LogInViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -324,14 +370,24 @@
 			files = (
 				5CEDEE3E1AA6AAF300BBFE66 /* BreastFeedingService.swift in Sources */,
 				5C80857C1AA0242B0062617A /* BreastFeeding.swift in Sources */,
+				5C7029611AAA53BA00BA1D13 /* AppSettings.swift in Sources */,
+				5C70296B1AAA5C4600BA1D13 /* Colors.swift in Sources */,
+				5C7029631AAA559000BA1D13 /* AppearanceManager.swift in Sources */,
+				5C6468341AAFD5E1002DE118 /* HomeViewController.swift in Sources */,
+				5C70296D1AAA9EFF00BA1D13 /* Themeable.swift in Sources */,
 				5C0E6E2C1A958AE000222635 /* HistoryViewController.swift in Sources */,
+				5C6468381AAFD9E3002DE118 /* LogInViewController.swift in Sources */,
 				5C0E6E281A958AE000222635 /* AppDelegate.swift in Sources */,
 				5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */,
+				5C70295F1AAA520900BA1D13 /* AppTheme.swift in Sources */,
 				5C0E6E2A1A958AE000222635 /* NursingViewController.swift in Sources */,
 				5C80857A1AA023F90062617A /* BottleFeeding.swift in Sources */,
+				5C7029681AAA577900BA1D13 /* DayTheme.swift in Sources */,
 				5C8085811AA04C2C0062617A /* TimeIntervalFormatter.swift in Sources */,
+				5C7029661AAA577100BA1D13 /* NightTheme.swift in Sources */,
 				5CD8DE2C1AAA2F5200490BA0 /* User.swift in Sources */,
 				5C0E6E541A9591D800222635 /* Timer.swift in Sources */,
+				5C6468361AAFD829002DE118 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
