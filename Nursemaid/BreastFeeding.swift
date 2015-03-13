@@ -2,12 +2,12 @@ import Foundation
 
 struct BreastFeeding {
 
-  var id: String!
-  var userId: String!
-  var startTime: NSDate!
-  var endTime: NSDate!
+  var id: String
+  var userId: String
+  var startTime: NSDate
+  var endTime: NSDate
   var leftSideSeconds = 0
   var rightSideSeconds = 0
-  var lastSide: String!
+  var lastSide: String
 
 }

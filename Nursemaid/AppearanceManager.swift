@@ -6,14 +6,13 @@ class AppearanceManager {
   var lastSelectedName: String?
   var selectedName: String?
   var theme: AppTheme {
-    var name = selectedName ?? autoSelector()
-    var active = themes[name!]
+    var name = selectedName ?? autoSelector() ?? lastSelectedName
 
     if name != lastSelectedName {
       if lastSelectedName != nil {
         themes[lastSelectedName!]?.deactivate()
       }
-
+      
       themes[name!]?.activate()
     }
 

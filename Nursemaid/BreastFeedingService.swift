@@ -1,10 +1,9 @@
 import Alamofire
 import Foundation
 
-let RESOURCE = SERVER + "/" + SERVER_VERSION + "/breastfeedings"
-
 public class BreastFeedingService {
 
+  let baseUrl = SERVER + "/" + SERVER_VERSION + "/breastfeedings"
   let dateFormatter = NSDateFormatter()
 
   init() {
@@ -13,7 +12,7 @@ public class BreastFeedingService {
   }
 
   func all(user: User, callback: (NSError?, [BreastFeeding]) -> ()) {
-    Alamofire.request(.GET, RESOURCE)
+    Alamofire.request(.GET, baseUrl)
       .authenticate(user: user.email, password: user.password)
       .responseJSON(handleMultiResponse(callback))
   }
@@ -28,13 +27,13 @@ public class BreastFeedingService {
       "rightSeconds": rightSeconds
     ]
 
-    Alamofire.request(.POST, RESOURCE, parameters: params)
+    Alamofire.request(.POST, baseUrl, parameters: params)
       .authenticate(user: user.email, password: user.password)
       .responseJSON(handleSingleResponse(callback))
   }
 
   func last(user: User, callback: (NSError?, BreastFeeding?) -> ()) {
-    Alamofire.request(.GET, RESOURCE + "/last")
+    Alamofire.request(.GET, baseUrl + "/last")
       .authenticate(user: user.email, password: user.password)
       .responseJSON(handleSingleResponse(callback))
   }
@@ -49,7 +48,7 @@ public class BreastFeedingService {
       "itemId": id
     ]
 
-    Alamofire.request(.DELETE, RESOURCE + "/" + id, parameters: params)
+    Alamofire.request(.DELETE, baseUrl + "/" + id, parameters: params)
       .authenticate(user: user.email, password: user.password)
       .responseJSON(handleResponse)
   }
@@ -61,38 +60,48 @@ public class BreastFeedingService {
     let endTime = dateFormatter.dateFromString(raw["endTime"] as String)
 
     return BreastFeeding(
-      id: raw["id"] as? String,
-      userId: raw["userId"] as? String,
-      startTime: startTime,
-      endTime: endTime,
+      id: raw["id"] as String,
+      userId: raw["userId"] as String,
+      startTime: startTime!,
+      endTime: endTime!,
       leftSideSeconds: leftSeconds,
       rightSideSeconds: rightSeconds,
-      lastSide: raw["lastSide"] as? String
+      lastSide: raw["lastSide"] as String
     )
   }
 
   private func handleMultiResponse(callback: (NSError?, [BreastFeeding]) -> ())(req: NSURLRequest, res: NSHTTPURLResponse?, data: AnyObject?, err: NSError?) {
+    var error = err
     var results: [BreastFeeding] = []
 
-    if err == nil {
+    if error == nil && (200..<300) ~= res!.statusCode {
+      error = NSError()
+    }
+
+    if error == nil {
       if let raw = data as? [NSDictionary] {
         results = raw.map(toModel)
       }
     }
     
-    callback(err, results)
+    callback(error, results)
   }
 
   private func handleSingleResponse(callback: (NSError?, BreastFeeding?) -> ())(req: NSURLRequest, res: NSHTTPURLResponse?, data: AnyObject?, err: NSError?) {
+    var error = err
     var result: BreastFeeding?
 
-    if err == nil {
+    if error == nil && (200..<300) ~= res!.statusCode {
+      error = NSError()
+    }
+
+    if error == nil {
       if let raw = data as? NSDictionary {
         result = toModel(raw)
       }
     }
 
-    callback(err, result)
+    callback(error, result)
   }
 
 }

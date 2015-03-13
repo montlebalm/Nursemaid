@@ -1,6 +1,6 @@
 import UIKit
 
-class WelcomeViewController: UIViewController, Themeable {
+class WelcomeViewController: UIViewController {
 
   @IBOutlet weak var titleLabel: UILabel!
 
@@ -11,17 +11,11 @@ class WelcomeViewController: UIViewController, Themeable {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    applyTheme()
-
     if !isFirstLoad {
       performSegueWithIdentifier("goto_login", sender: self)
     } else if CurrentUser != nil {
       performSegueWithIdentifier("goto_main", sender: self)
     }
-  }
-
-  func applyTheme() {
-    let theme = Appearance.theme
   }
 
   @IBAction func skipPressed(sender: UIButton) {

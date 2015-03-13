@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TmR-FG-dOD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBW-9T-hMp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -13,13 +13,9 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9gl-aM-cf7">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crn-LY-CVS" userLabel="Left breast">
                                 <rect key="frame" x="16" y="90" width="135" height="135"/>
                                 <state key="normal" title="Nurse on Left">
@@ -155,24 +151,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Breastfeed" image="first" id="acW-dT-cKf"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="currentLastSideLabel" destination="aOg-2X-zKI" id="tkk-HP-S15"/>
                         <outlet property="currentSectionLabel" destination="bg0-rm-6QM" id="3oJ-jZ-w1h"/>
                         <outlet property="currentSectionView" destination="u0B-yb-FMe" id="IB5-zU-oFs"/>
-                        <outlet property="currentTotalLabel" destination="eoW-oo-KBo" id="tYa-f4-X2Z"/>
                         <outlet property="lastLastSideLabel" destination="KQB-EO-kSr" id="tzq-nF-jGi"/>
                         <outlet property="lastLeftElapsedLabel" destination="eoM-Yp-Kqz" id="dlN-Xa-Ibn"/>
                         <outlet property="lastRightElapsedLabel" destination="jgP-Uq-fsZ" id="UZB-mS-vlV"/>
                         <outlet property="lastSideLabel" destination="3hs-bd-iJJ" id="G4U-8A-QAK"/>
                         <outlet property="leftBreastButton" destination="crn-LY-CVS" id="dhS-Zd-jw0"/>
                         <outlet property="leftElapsedLabel" destination="d3v-Ca-4zE" id="L7Q-s5-q7S"/>
-                        <outlet property="mainView" destination="9gl-aM-cf7" id="ogQ-Rm-VJ9"/>
-                        <outlet property="navigationBar" destination="oYQ-YA-ySM" id="zcN-fw-Jng"/>
-                        <outlet property="navigationTitleItem" destination="4yi-8z-rkR" id="Fru-3l-2fi"/>
-                        <outlet property="previousLastSideLabel" destination="And-Qf-b95" id="2FG-wV-iZ3"/>
-                        <outlet property="previousLeftLabel" destination="rLz-yn-uUd" id="6Sf-lP-zjv"/>
-                        <outlet property="previousRightLabel" destination="z7i-sa-bkv" id="ksQ-0G-Zot"/>
                         <outlet property="previousSectionLabel" destination="4l8-I2-kFd" id="Llw-Tn-tdd"/>
                         <outlet property="previousSectionView" destination="hbu-ci-soR" id="Be1-Yk-h29"/>
                         <outlet property="resetButton" destination="kVZ-uL-00m" id="hfe-1Y-vl8"/>
@@ -185,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="0.0"/>
+            <point key="canvasLocation" x="499" y="0.0"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="Vnz-4l-H1h">
@@ -211,7 +200,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nursemaid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsD-Em-dcW">
                                 <rect key="frame" x="16" y="52" width="288" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -224,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6y-pY-sOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-585" y="762"/>
+            <point key="canvasLocation" x="-503" y="0.0"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -292,47 +281,6 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="762"/>
         </scene>
-        <!--Welcome View Controller-->
-        <scene sceneID="K0n-Va-lhA">
-            <objects>
-                <viewController id="TmR-FG-dOD" customClass="WelcomeViewController" customModule="Nursemaid" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GXT-8U-6i3"/>
-                        <viewControllerLayoutGuide type="bottom" id="ti0-rc-2OP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QL5-yu-pZS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhn-LD-eMN">
-                                <rect key="frame" x="16" y="53" width="288" height="58"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weV-39-6lm">
-                                <rect key="frame" x="83" y="437" width="155" height="30"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipPressed:" destination="TmR-FG-dOD" eventType="touchUpInside" id="Wi1-9u-ns5"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="titleLabel" destination="Jhn-LD-eMN" id="DhC-kL-heK"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="goto_main" id="vOi-44-dMb"/>
-                        <segue destination="uBW-9T-hMp" kind="show" identifier="goto_login" id="udd-M2-yzj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u6P-q5-iB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-585" y="0.0"/>
-        </scene>
         <!--Home-->
         <scene sceneID="eJ8-Eb-b1Y">
             <objects>
@@ -348,9 +296,27 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6S-Xk-BQ9">
                                 <rect key="frame" x="137" y="48" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlh-61-bHi">
+                                <rect key="frame" x="109" y="215" width="103" height="30"/>
+                                <state key="normal" title="Switch to night">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nightThemePressed:" destination="32a-Jf-Gm0" eventType="touchUpInside" id="BVs-my-3sJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFI-37-5ai">
+                                <rect key="frame" x="113" y="163" width="94" height="30"/>
+                                <state key="normal" title="Switch to day">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dayThemePressed:" destination="32a-Jf-Gm0" eventType="touchUpInside" id="MEE-jT-1uO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -386,7 +352,4 @@
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="vOi-44-dMb"/>
-    </inferredMetricsTieBreakers>
 </document>

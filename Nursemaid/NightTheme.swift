@@ -4,23 +4,30 @@ struct NightTheme: AppTheme {
 
   var BackgroundPrimary = Colors.BlackDark
   var BackgroundSecondary = Colors.BlackMedium
-  var BackgroundTertiary = Colors.BlackLight
-  var HighlightPrimary = Colors.BlueDark
+  var HighlightPrimary = Colors.BlueLight
   var HighlightSecondary = Colors.BlueMedium
-  var HighlightTertiary = Colors.BlueLight
   var TextPrimary = Colors.WhiteLight
   var TextSecondary = Colors.WhiteMedium
-  var TextTertiary = Colors.BlackLight
+  var StatusBarStyle = UIStatusBarStyle.LightContent
 
   init() {}
 
   func activate() {
-    let app = UIApplication.sharedApplication()
-    app.statusBarStyle = UIStatusBarStyle.BlackOpaque
+    let nav = UINavigationBar.appearance()
+    nav.tintColor = HighlightPrimary
+    nav.barTintColor = BackgroundPrimary
+    nav.titleTextAttributes = [NSForegroundColorAttributeName: TextPrimary]
 
     let tab = UITabBar.appearance()
-    tab.barTintColor = BackgroundSecondary
-    tab.selectedImageTintColor = HighlightTertiary
+    tab.barTintColor = BackgroundPrimary
+    tab.selectedImageTintColor = HighlightSecondary
+
+    let label = UILabel.appearance()
+    label.textColor = UIColor.whiteColor()
+
+    let button = UIButton.appearance()
+    button.tintColor = HighlightPrimary
+    button.layer.borderColor = HighlightPrimary.CGColor
   }
 
   func deactivate() {}

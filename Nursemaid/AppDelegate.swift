@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     setupThemes()
 
+    Appearance.set("night")
+
     return true
   }
   
@@ -56,18 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ]
 
     Appearance = AppearanceManager(themes: themes) {
-      if Settings.autoSelectTheme {
-        return self.isDaytime(NSDate()) ? "day" : "night"
+      if Settings.selectedTheme != nil {
+        return Settings.selectedTheme
+      } else if Settings.autoSelectTheme {
+        return isDaytime(NSDate()) ? "day" : "night"
       }
 
-      return Settings.selectedTheme
+      return "day"
     }
-  }
-
-  private func isDaytime(time: NSDate) -> Bool {
-    let calendar = NSCalendar.currentCalendar()
-    let components = calendar.components(.CalendarUnitHour, fromDate: time)
-    return components.hour < 18
   }
 
 }

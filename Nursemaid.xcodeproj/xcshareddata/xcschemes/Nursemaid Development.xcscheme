@@ -89,13 +89,13 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "IS_FIRST_LOAD"
-            value = "true"
+            key = "API_VERSION"
+            value = "v1"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "API_VERSION"
-            value = "v1"
+            key = "IS_FIRST_LOAD"
+            value = "true"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

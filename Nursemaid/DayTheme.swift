@@ -11,6 +11,7 @@ struct DayTheme: AppTheme {
   var TextPrimary = Colors.BlackDark
   var TextSecondary = Colors.BlackMedium
   var TextTertiary = Colors.WhiteDark
+  var StatusBarStyle = UIStatusBarStyle.BlackOpaque
 
   init() {}
 

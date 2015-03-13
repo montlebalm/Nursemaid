@@ -1,6 +1,6 @@
 import UIKit
 
-class NursingViewController: UIViewController {
+class NursingViewController: UIViewController, Themeable {
 
   var currentTimer: Timer?
   var leftTimer: Timer!
@@ -22,24 +22,17 @@ class NursingViewController: UIViewController {
   @IBOutlet weak var resetButton: UIBarButtonItem!
   @IBOutlet weak var saveButton: UIBarButtonItem!
 
-  @IBOutlet weak var mainView: UIView!
-  @IBOutlet weak var navigationBar: UINavigationBar!
-  @IBOutlet weak var navigationTitleItem: UINavigationItem!
+  // For styling only
   @IBOutlet weak var currentSectionLabel: UILabel!
   @IBOutlet weak var currentSectionView: UIView!
   @IBOutlet weak var previousSectionLabel: UILabel!
   @IBOutlet weak var previousSectionView: UIView!
-  @IBOutlet weak var currentTotalLabel: UILabel!
-  @IBOutlet weak var currentLastSideLabel: UILabel!
-  @IBOutlet weak var previousLastSideLabel: UILabel!
-  @IBOutlet weak var previousLeftLabel: UILabel!
-  @IBOutlet weak var previousRightLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     styleViews()
-    reset()
+    resetView()
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -82,9 +75,8 @@ class NursingViewController: UIViewController {
       startTime = NSDate()
     }
 
-    if !saveButton.enabled {
-      saveButton.enabled = true
-    }
+    resetButton.enabled = true
+    saveButton.enabled = true
 
     currentTimer = active.timer
     lastSideLabel.text = currentTimer! === leftTimer ? "Left" : "Right"
@@ -104,7 +96,7 @@ class NursingViewController: UIViewController {
     }
   }
 
-  func reset() {
+  func resetView() {
     leftTimer?.stop()
     rightTimer?.stop()
     leftTimer = Timer(updateElapsedLabel(leftElapsedLabel))
@@ -120,6 +112,7 @@ class NursingViewController: UIViewController {
 
     resetPreviousFeeding()
 
+    resetButton.enabled = false
     saveButton.enabled = false
   }
 
@@ -147,42 +140,31 @@ class NursingViewController: UIViewController {
     }
   }
 
-  // Styles
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return Appearance.theme.StatusBarStyle
+  }
+
+  // Protocol: Themeable
 
   func applyTheme() {
     let theme = Appearance.theme
 
-    leftBreastButton.tintColor = theme.HighlightPrimary
-    leftBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
-    leftElapsedLabel.textColor = theme.TextPrimary
-
-    rightBreastButton.tintColor = theme.HighlightPrimary
-    rightBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
-    rightElapsedLabel.textColor = theme.TextPrimary
-
     totalElapsedLabel.textColor = theme.TextSecondary
     lastSideLabel.textColor = theme.TextSecondary
-    currentTotalLabel.textColor = theme.TextPrimary
-    currentLastSideLabel.textColor = theme.TextPrimary
+    currentSectionLabel.textColor = theme.TextSecondary
+
     currentSectionView.backgroundColor = theme.BackgroundSecondary
-    currentSectionLabel.textColor = theme.TextTertiary
+    previousSectionView.backgroundColor = theme.BackgroundSecondary
 
     lastLastSideLabel.textColor = theme.TextSecondary
     lastLeftElapsedLabel.textColor = theme.TextSecondary
     lastRightElapsedLabel.textColor = theme.TextSecondary
-    previousLastSideLabel.textColor = theme.TextPrimary
-    previousLeftLabel.textColor = theme.TextPrimary
-    previousRightLabel.textColor = theme.TextPrimary
-    previousSectionView.backgroundColor = theme.BackgroundSecondary
-    previousSectionLabel.textColor = theme.TextTertiary
+    previousSectionLabel.textColor = theme.TextSecondary
 
-    resetButton.tintColor = theme.HighlightPrimary
-    saveButton.tintColor = theme.HighlightPrimary
+    leftBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
+    rightBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
 
-    navigationBar.barTintColor = theme.BackgroundSecondary
-    navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: theme.TextPrimary]
-
-    mainView.backgroundColor = theme.BackgroundPrimary
+    view.backgroundColor = theme.BackgroundPrimary
   }
 
   func styleViews() {
@@ -191,7 +173,6 @@ class NursingViewController: UIViewController {
   }
 
   func styleBreastButton(btn: UIButton) {
-    btn.layer.borderColor = btn.tintColor?.CGColor
     btn.layer.borderWidth = 1
     btn.layer.cornerRadius = btn.layer.frame.width / 2
   }
@@ -214,7 +195,7 @@ class NursingViewController: UIViewController {
 
   @IBAction func savePressed(sender: UIBarButtonItem) {
     saveFeeding()
-    reset()
+    resetView()
 
     fetchData() {
       self.updatePreviousFeeding(self.previousFeeding)
@@ -222,7 +203,7 @@ class NursingViewController: UIViewController {
   }
 
   @IBAction func resetPressed(sender: UIBarButtonItem) {
-    reset()
+    resetView()
     updatePreviousFeeding(previousFeeding)
   }
 

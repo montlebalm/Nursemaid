@@ -1,4 +1,3 @@
-import CoreData
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Themeable {
@@ -35,7 +34,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
   }
 
-  // Styles
+  // Protocol: Themeable
 
   func applyTheme() {
     let theme = Appearance.theme
