@@ -4,16 +4,13 @@ class NursingViewController: UIViewController, Themeable {
 
   var currentTimer: Timer?
   var leftTimer: Timer!
-  var previousFeeding: BreastFeeding?
+  var previousFeeding: Breastfeeding?
   var rightTimer: Timer!
-  var startTime: NSDate?
 
   @IBOutlet weak var leftBreastButton: UIButton!
   @IBOutlet weak var leftElapsedLabel: UILabel!
   @IBOutlet weak var rightBreastButton: UIButton!
   @IBOutlet weak var rightElapsedLabel: UILabel!
-  @IBOutlet weak var totalElapsedLabel: UILabel!
-  @IBOutlet weak var lastSideLabel: UILabel!
 
   @IBOutlet weak var lastLastSideLabel: UILabel!
   @IBOutlet weak var lastLeftElapsedLabel: UILabel!
@@ -23,8 +20,6 @@ class NursingViewController: UIViewController, Themeable {
   @IBOutlet weak var saveButton: UIBarButtonItem!
 
   // For styling only
-  @IBOutlet weak var currentSectionLabel: UILabel!
-  @IBOutlet weak var currentSectionView: UIView!
   @IBOutlet weak var previousSectionLabel: UILabel!
   @IBOutlet weak var previousSectionView: UIView!
 
@@ -46,7 +41,7 @@ class NursingViewController: UIViewController, Themeable {
   }
 
   func fetchData(callback: () -> ()) {
-    BreastFeedingSvc.last(CurrentUser) { err, result in
+    BreastSvc.last() { err, result in
       if err == nil {
         self.previousFeeding = result
       }
@@ -57,10 +52,9 @@ class NursingViewController: UIViewController, Themeable {
 
   func updateElapsedLabel(label: UILabel)(elapsed: Double) {
     label.text = TimeIntervalFormatter.format(Int(elapsed))
-    totalElapsedLabel.text = TimeIntervalFormatter.format(Int(leftTimer.elapsed + rightTimer.elapsed))
   }
 
-  func updatePreviousFeeding(previousFeeding: BreastFeeding?) {
+  func updatePreviousFeeding(previousFeeding: Breastfeeding?) {
     if let feeding = previousFeeding {
       lastLastSideLabel.text = feeding.lastSide == "l" ? "Left" : "Right"
       lastLeftElapsedLabel.text = TimeIntervalFormatter.format(feeding.leftSideSeconds)
@@ -71,28 +65,23 @@ class NursingViewController: UIViewController, Themeable {
   }
 
   func toggleTimer(active: (button: UIButton, timer: Timer, label: String), inactive: (button: UIButton, timer: Timer, label: String)) {
-    if startTime == nil {
-      startTime = NSDate()
-    }
-
     resetButton.enabled = true
     saveButton.enabled = true
 
     currentTimer = active.timer
-    lastSideLabel.text = currentTimer! === leftTimer ? "Left" : "Right"
     toggleBreastButton(active, inactive: inactive)
   }
 
   func toggleBreastButton(active: (button: UIButton, timer: Timer, label: String), inactive: (button: UIButton, timer: Timer, label: String)) {
     if active.timer.running() {
       active.timer.stop()
-      active.button.setTitle("Nurse on " + active.label, forState: UIControlState.Normal)
+      active.button.setTitle("Start", forState: UIControlState.Normal)
     } else {
       active.timer.start()
-      active.button.setTitle("Stop " + active.label, forState: UIControlState.Normal)
+      active.button.setTitle("Stop", forState: UIControlState.Normal)
 
       inactive.timer.stop()
-      inactive.button.setTitle("Nurse on " + inactive.label, forState: UIControlState.Normal)
+      inactive.button.setTitle("Start", forState: UIControlState.Normal)
     }
   }
 
@@ -102,13 +91,13 @@ class NursingViewController: UIViewController, Themeable {
     leftTimer = Timer(updateElapsedLabel(leftElapsedLabel))
     rightTimer = Timer(updateElapsedLabel(rightElapsedLabel))
 
-    leftBreastButton.setTitle("Nurse on Left", forState: UIControlState.Normal)
-    rightBreastButton.setTitle("Nurse on Right", forState: UIControlState.Normal)
+    leftBreastButton.setTitle("Start", forState: UIControlState.Normal)
+    rightBreastButton.setTitle("Start", forState: UIControlState.Normal)
+    leftBreastButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 15.0, 0.0)
+    rightBreastButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 15.0, 0.0)
 
     leftElapsedLabel.text = TimeIntervalFormatter.format(0)
     rightElapsedLabel.text = TimeIntervalFormatter.format(0)
-    totalElapsedLabel.text = TimeIntervalFormatter.format(0)
-    lastSideLabel.text = "--"
 
     resetPreviousFeeding()
 
@@ -125,10 +114,8 @@ class NursingViewController: UIViewController, Themeable {
   func saveFeeding() {
     let lastSide = currentTimer! === leftTimer ? "l" : "r"
 
-    BreastFeedingSvc.create(
-      CurrentUser,
-      startTime: startTime!,
-      endTime: NSDate(),
+    BreastSvc.create(
+      NSDate(),
       lastSide: lastSide,
       leftSeconds: Int(leftTimer.elapsed),
       rightSeconds: Int(rightTimer.elapsed)
@@ -141,30 +128,23 @@ class NursingViewController: UIViewController, Themeable {
   }
 
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return Appearance.theme.StatusBarStyle
+    return Theme.StatusBarStyle
   }
 
   // Protocol: Themeable
 
   func applyTheme() {
-    let theme = Appearance.theme
-
-    totalElapsedLabel.textColor = theme.TextSecondary
-    lastSideLabel.textColor = theme.TextSecondary
-    currentSectionLabel.textColor = theme.TextSecondary
-
-    currentSectionView.backgroundColor = theme.BackgroundSecondary
-    previousSectionView.backgroundColor = theme.BackgroundSecondary
-
-    lastLastSideLabel.textColor = theme.TextSecondary
-    lastLeftElapsedLabel.textColor = theme.TextSecondary
-    lastRightElapsedLabel.textColor = theme.TextSecondary
-    previousSectionLabel.textColor = theme.TextSecondary
-
-    leftBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
-    rightBreastButton.layer.borderColor = theme.HighlightPrimary.CGColor
-
-    view.backgroundColor = theme.BackgroundPrimary
+    previousSectionView.backgroundColor = Theme.BackgroundSecondary
+    
+    lastLastSideLabel.textColor = Theme.TextSecondary
+    lastLeftElapsedLabel.textColor = Theme.TextSecondary
+    lastRightElapsedLabel.textColor = Theme.TextSecondary
+    previousSectionLabel.textColor = Theme.TextSecondary
+    
+    leftBreastButton.layer.borderColor = Theme.HighlightPrimary.CGColor
+    rightBreastButton.layer.borderColor = Theme.HighlightPrimary.CGColor
+    
+    view.backgroundColor = Theme.BackgroundPrimary
   }
 
   func styleViews() {

@@ -1,9 +1,18 @@
+import Parse
 import UIKit
 
 class HomeViewController: UIViewController, Themeable {
 
+  @IBOutlet weak var welcomeLabel: UILabel!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    if CurrentUser == nil || !CurrentUser!.isAuthenticated() {
+      gotoLogin()
+    }
+
+    welcomeLabel.text = CurrentUser?.username
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -12,22 +21,19 @@ class HomeViewController: UIViewController, Themeable {
     applyTheme()
   }
 
+  func gotoLogin() {
+    presentViewController(getController("Login", "Login"), animated: true, completion: nil)
+  }
+
   // Protocol: Themeable
   
-  func applyTheme() {
-    let theme = Appearance.theme
-  }
+  func applyTheme() {}
 
   // IBActions
 
-  @IBAction func dayThemePressed(sender: UIButton) {
-    Appearance.set("day")
-    applyTheme()
-  }
-
-  @IBAction func nightThemePressed(sender: UIButton) {
-    Appearance.set("night")
-    applyTheme()
+  @IBAction func signOutPressed(sender: AnyObject) {
+    PFUser.logOut()
+    gotoLogin()
   }
 
 }

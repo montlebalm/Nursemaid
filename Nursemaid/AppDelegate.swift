@@ -1,27 +1,28 @@
+import Parse
 import UIKit
 
 let ENV = NSProcessInfo.processInfo().environment
+var BreastSvc = BreastService()
+var BottleSvc = BottleService()
+var UserSvc = UserService()
+var Theme: AppTheme { return Appearance.theme }
+var CurrentUser: PFUser? { return PFUser.currentUser() }
 
-let SERVER = ENV["API_SERVER"] as String
-let SERVER_VERSION = ENV["API_VERSION"] as String
-
-var isFirstLoad = ENV["IS_FIRST_LOAD"] as String? != "false"
-
-var BreastFeedingSvc = BreastFeedingService()
-var Settings = AppSettings()
-
-var CurrentUser: User!
-var Appearance: AppearanceManager!
+private var Appearance: AppearanceManager!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
-  
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    setupThemes()
 
-    Appearance.set("night")
+  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    let parseAppId = ENV["PARSE_APP_ID"] as String
+    let parseClientKey = ENV["PARSE_CLIENT_KEY"] as String
+    Parse.enableLocalDatastore()
+    Parse.setApplicationId(parseAppId, clientKey: parseClientKey)
+
+    setupThemes()
+    Appearance.set("day")
 
     return true
   }
@@ -58,13 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ]
 
     Appearance = AppearanceManager(themes: themes) {
-      if Settings.selectedTheme != nil {
-        return Settings.selectedTheme
-      } else if Settings.autoSelectTheme {
-        return isDaytime(NSDate()) ? "day" : "night"
-      }
-
-      return "day"
+      return isDaytime(NSDate()) ? "day" : "night"
     }
   }
 

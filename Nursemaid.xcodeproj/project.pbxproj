@@ -15,25 +15,41 @@
 		5C0E6E341A958AE000222635 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E6E321A958AE000222635 /* LaunchScreen.xib */; };
 		5C0E6E541A9591D800222635 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E531A9591D800222635 /* Timer.swift */; };
 		5C0E6E591A9593DB00222635 /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E6E571A9593DB00222635 /* TimerTests.swift */; };
+		5C5350451ABB6C5C0068AF12 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350431ABB6C5C0068AF12 /* Bolts.framework */; };
+		5C5350461ABB6C5C0068AF12 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350431ABB6C5C0068AF12 /* Bolts.framework */; };
+		5C5350471ABB6C5C0068AF12 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350441ABB6C5C0068AF12 /* Parse.framework */; };
+		5C5350481ABB6C5C0068AF12 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350441ABB6C5C0068AF12 /* Parse.framework */; };
+		5C53504B1ABB6C970068AF12 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C53504A1ABB6C970068AF12 /* AudioToolbox.framework */; };
+		5C5350541ABB6CC50068AF12 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C53504C1ABB6CC50068AF12 /* CFNetwork.framework */; };
+		5C5350551ABB6CC50068AF12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C53504D1ABB6CC50068AF12 /* CoreGraphics.framework */; };
+		5C5350561ABB6CC50068AF12 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C53504E1ABB6CC50068AF12 /* CoreLocation.framework */; };
+		5C5350571ABB6CC50068AF12 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C53504F1ABB6CC50068AF12 /* MobileCoreServices.framework */; };
+		5C5350581ABB6CC50068AF12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350501ABB6CC50068AF12 /* QuartzCore.framework */; };
+		5C5350591ABB6CC50068AF12 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350511ABB6CC50068AF12 /* Security.framework */; };
+		5C53505A1ABB6CC50068AF12 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350521ABB6CC50068AF12 /* StoreKit.framework */; };
+		5C53505B1ABB6CC50068AF12 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5350531ABB6CC50068AF12 /* SystemConfiguration.framework */; };
+		5C53505D1ABB6CCE0068AF12 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C53505C1ABB6CCE0068AF12 /* libz.dylib */; };
+		5C53505F1ABB6CD80068AF12 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C53505E1ABB6CD80068AF12 /* libsqlite3.dylib */; };
 		5C6468341AAFD5E1002DE118 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6468331AAFD5E1002DE118 /* HomeViewController.swift */; };
-		5C6468361AAFD829002DE118 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6468351AAFD829002DE118 /* WelcomeViewController.swift */; };
 		5C6468381AAFD9E3002DE118 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6468371AAFD9E3002DE118 /* LogInViewController.swift */; };
 		5C70295F1AAA520900BA1D13 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70295E1AAA520900BA1D13 /* AppTheme.swift */; };
-		5C7029611AAA53BA00BA1D13 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029601AAA53BA00BA1D13 /* AppSettings.swift */; };
 		5C7029631AAA559000BA1D13 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029621AAA559000BA1D13 /* AppearanceManager.swift */; };
 		5C7029661AAA577100BA1D13 /* NightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029651AAA577100BA1D13 /* NightTheme.swift */; };
 		5C7029681AAA577900BA1D13 /* DayTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7029671AAA577900BA1D13 /* DayTheme.swift */; };
 		5C70296B1AAA5C4600BA1D13 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70296A1AAA5C4600BA1D13 /* Colors.swift */; };
 		5C70296D1AAA9EFF00BA1D13 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70296C1AAA9EFF00BA1D13 /* Themeable.swift */; };
-		5C80857C1AA0242B0062617A /* BreastFeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857B1AA0242B0062617A /* BreastFeeding.swift */; };
+		5C80857C1AA0242B0062617A /* Breastfeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857B1AA0242B0062617A /* Breastfeeding.swift */; };
 		5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80857E1AA030B40062617A /* HistoryTableCell.swift */; };
 		5C8085811AA04C2C0062617A /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */; };
 		5CC898FA1AB0F37A007BE346 /* colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC898F91AB0F37A007BE346 /* colorFromHex.swift */; };
 		5CC898FD1AB102AD007BE346 /* isDaytime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC898FC1AB102AD007BE346 /* isDaytime.swift */; };
-		5CD8DE2C1AAA2F5200490BA0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8DE2B1AAA2F5200490BA0 /* User.swift */; };
-		5CEDEE3A1AA6AAC400BBFE66 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */; };
-		5CEDEE3B1AA6AACA00BBFE66 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CEDEE3E1AA6AAF300BBFE66 /* BreastFeedingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEDEE3D1AA6AAF300BBFE66 /* BreastFeedingService.swift */; };
+		5CEDEE3E1AA6AAF300BBFE66 /* BreastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEDEE3D1AA6AAF300BBFE66 /* BreastService.swift */; };
+		5CEFCE791ABC61E800460830 /* BottleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEFCE781ABC61E800460830 /* BottleService.swift */; };
+		5CEFCE7B1ABC626400460830 /* Bottlefeeding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEFCE7A1ABC626400460830 /* Bottlefeeding.swift */; };
+		5CEFCE7F1ABCCB2200460830 /* BottleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEFCE7E1ABCCB2200460830 /* BottleViewController.swift */; };
+		5CF7109A1ABE74AA006AACF9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF710991ABE74AA006AACF9 /* Login.storyboard */; };
+		5CF7109C1ABE769B006AACF9 /* getController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7109B1ABE769B006AACF9 /* getController.swift */; };
+		5CF7109E1ABE782C006AACF9 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7109D1ABE782C006AACF9 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +78,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5CEDEE3B1AA6AACA00BBFE66 /* Alamofire.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,24 +96,39 @@
 		5C0E6E3E1A958AE000222635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C0E6E531A9591D800222635 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		5C0E6E571A9593DB00222635 /* TimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
+		5C5350431ABB6C5C0068AF12 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		5C5350441ABB6C5C0068AF12 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		5C53504A1ABB6C970068AF12 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5C53504C1ABB6CC50068AF12 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5C53504D1ABB6CC50068AF12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5C53504E1ABB6CC50068AF12 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5C53504F1ABB6CC50068AF12 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5C5350501ABB6CC50068AF12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5C5350511ABB6CC50068AF12 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5C5350521ABB6CC50068AF12 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5C5350531ABB6CC50068AF12 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5C53505C1ABB6CCE0068AF12 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5C53505E1ABB6CD80068AF12 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5C6468331AAFD5E1002DE118 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		5C6468351AAFD829002DE118 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5C6468371AAFD9E3002DE118 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5C70295E1AAA520900BA1D13 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		5C7029601AAA53BA00BA1D13 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		5C7029621AAA559000BA1D13 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		5C7029651AAA577100BA1D13 /* NightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightTheme.swift; sourceTree = "<group>"; };
 		5C7029671AAA577900BA1D13 /* DayTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTheme.swift; sourceTree = "<group>"; };
 		5C70296A1AAA5C4600BA1D13 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5C70296C1AAA9EFF00BA1D13 /* Themeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
-		5C80857B1AA0242B0062617A /* BreastFeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeeding.swift; sourceTree = "<group>"; };
+		5C80857B1AA0242B0062617A /* Breastfeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breastfeeding.swift; sourceTree = "<group>"; };
 		5C80857E1AA030B40062617A /* HistoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableCell.swift; sourceTree = "<group>"; };
 		5C8085801AA04C2C0062617A /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		5CC898F91AB0F37A007BE346 /* colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorFromHex.swift; sourceTree = "<group>"; };
 		5CC898FC1AB102AD007BE346 /* isDaytime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = isDaytime.swift; sourceTree = "<group>"; };
-		5CD8DE2B1AAA2F5200490BA0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		5CEDEE3D1AA6AAF300BBFE66 /* BreastFeedingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeedingService.swift; sourceTree = "<group>"; };
+		5CEDEE3D1AA6AAF300BBFE66 /* BreastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastService.swift; sourceTree = "<group>"; };
+		5CEFCE781ABC61E800460830 /* BottleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleService.swift; sourceTree = "<group>"; };
+		5CEFCE7A1ABC626400460830 /* Bottlefeeding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bottlefeeding.swift; sourceTree = "<group>"; };
+		5CEFCE7E1ABCCB2200460830 /* BottleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleViewController.swift; sourceTree = "<group>"; };
+		5CF710991ABE74AA006AACF9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		5CF7109B1ABE769B006AACF9 /* getController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getController.swift; sourceTree = "<group>"; };
+		5CF7109D1ABE782C006AACF9 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +136,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEDEE3A1AA6AAC400BBFE66 /* Alamofire.framework in Frameworks */,
+				5C53505F1ABB6CD80068AF12 /* libsqlite3.dylib in Frameworks */,
+				5C53505D1ABB6CCE0068AF12 /* libz.dylib in Frameworks */,
+				5C5350541ABB6CC50068AF12 /* CFNetwork.framework in Frameworks */,
+				5C5350551ABB6CC50068AF12 /* CoreGraphics.framework in Frameworks */,
+				5C5350561ABB6CC50068AF12 /* CoreLocation.framework in Frameworks */,
+				5C5350571ABB6CC50068AF12 /* MobileCoreServices.framework in Frameworks */,
+				5C5350581ABB6CC50068AF12 /* QuartzCore.framework in Frameworks */,
+				5C5350591ABB6CC50068AF12 /* Security.framework in Frameworks */,
+				5C53505A1ABB6CC50068AF12 /* StoreKit.framework in Frameworks */,
+				5C53505B1ABB6CC50068AF12 /* SystemConfiguration.framework in Frameworks */,
+				5C53504B1ABB6C970068AF12 /* AudioToolbox.framework in Frameworks */,
+				5C5350471ABB6C5C0068AF12 /* Parse.framework in Frameworks */,
+				5C5350451ABB6C5C0068AF12 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +156,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C5350481ABB6C5C0068AF12 /* Parse.framework in Frameworks */,
+				5C5350461ABB6C5C0068AF12 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +170,7 @@
 				5C0E6E241A958AE000222635 /* Nursemaid */,
 				5C0E6E3C1A958AE000222635 /* NursemaidTests */,
 				5C0E6E231A958AE000222635 /* Products */,
-				5CEDEE391AA6AAC400BBFE66 /* Alamofire.framework */,
+				5C5350491ABB6C610068AF12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,9 +249,8 @@
 		5C0E6E5E1A963E2D00222635 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5C80857B1AA0242B0062617A /* BreastFeeding.swift */,
-				5CD8DE2B1AAA2F5200490BA0 /* User.swift */,
-				5C7029601AAA53BA00BA1D13 /* AppSettings.swift */,
+				5C80857B1AA0242B0062617A /* Breastfeeding.swift */,
+				5CEFCE7A1ABC626400460830 /* Bottlefeeding.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -219,6 +262,26 @@
 				5C70296C1AAA9EFF00BA1D13 /* Themeable.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		5C5350491ABB6C610068AF12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C53505E1ABB6CD80068AF12 /* libsqlite3.dylib */,
+				5C53505C1ABB6CCE0068AF12 /* libz.dylib */,
+				5C53504C1ABB6CC50068AF12 /* CFNetwork.framework */,
+				5C53504D1ABB6CC50068AF12 /* CoreGraphics.framework */,
+				5C53504E1ABB6CC50068AF12 /* CoreLocation.framework */,
+				5C53504F1ABB6CC50068AF12 /* MobileCoreServices.framework */,
+				5C5350501ABB6CC50068AF12 /* QuartzCore.framework */,
+				5C5350511ABB6CC50068AF12 /* Security.framework */,
+				5C5350521ABB6CC50068AF12 /* StoreKit.framework */,
+				5C5350531ABB6CC50068AF12 /* SystemConfiguration.framework */,
+				5C53504A1ABB6C970068AF12 /* AudioToolbox.framework */,
+				5C5350431ABB6C5C0068AF12 /* Bolts.framework */,
+				5C5350441ABB6C5C0068AF12 /* Parse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5C7029641AAA55F000BA1D13 /* Themes */ = {
@@ -241,12 +304,12 @@
 		5C7224EB1A990E3D00AC2802 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5CF710981ABE749B006AACF9 /* Login */,
 				5C80857D1AA030930062617A /* Table cells */,
 				5C0E6E291A958AE000222635 /* NursingViewController.swift */,
 				5C0E6E2B1A958AE000222635 /* HistoryViewController.swift */,
 				5C6468331AAFD5E1002DE118 /* HomeViewController.swift */,
-				5C6468351AAFD829002DE118 /* WelcomeViewController.swift */,
-				5C6468371AAFD9E3002DE118 /* LogInViewController.swift */,
+				5CEFCE7E1ABCCB2200460830 /* BottleViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -264,6 +327,7 @@
 			children = (
 				5CC898F91AB0F37A007BE346 /* colorFromHex.swift */,
 				5CC898FC1AB102AD007BE346 /* isDaytime.swift */,
+				5CF7109B1ABE769B006AACF9 /* getController.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -271,9 +335,20 @@
 		5CEDEE3C1AA6AADA00BBFE66 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5CEDEE3D1AA6AAF300BBFE66 /* BreastFeedingService.swift */,
+				5CEDEE3D1AA6AAF300BBFE66 /* BreastService.swift */,
+				5CEFCE781ABC61E800460830 /* BottleService.swift */,
+				5CF7109D1ABE782C006AACF9 /* UserService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		5CF710981ABE749B006AACF9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5CF710991ABE74AA006AACF9 /* Login.storyboard */,
+				5C6468371AAFD9E3002DE118 /* LogInViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +436,7 @@
 			files = (
 				5C0E6E2F1A958AE000222635 /* Main.storyboard in Resources */,
 				5C0E6E341A958AE000222635 /* LaunchScreen.xib in Resources */,
+				5CF7109A1ABE74AA006AACF9 /* Login.storyboard in Resources */,
 				5C0E6E311A958AE000222635 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,27 +455,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEDEE3E1AA6AAF300BBFE66 /* BreastFeedingService.swift in Sources */,
+				5CEDEE3E1AA6AAF300BBFE66 /* BreastService.swift in Sources */,
 				5CC898FA1AB0F37A007BE346 /* colorFromHex.swift in Sources */,
-				5C80857C1AA0242B0062617A /* BreastFeeding.swift in Sources */,
-				5C7029611AAA53BA00BA1D13 /* AppSettings.swift in Sources */,
+				5C80857C1AA0242B0062617A /* Breastfeeding.swift in Sources */,
 				5C70296B1AAA5C4600BA1D13 /* Colors.swift in Sources */,
 				5CC898FD1AB102AD007BE346 /* isDaytime.swift in Sources */,
 				5C7029631AAA559000BA1D13 /* AppearanceManager.swift in Sources */,
 				5C6468341AAFD5E1002DE118 /* HomeViewController.swift in Sources */,
 				5C70296D1AAA9EFF00BA1D13 /* Themeable.swift in Sources */,
+				5CEFCE791ABC61E800460830 /* BottleService.swift in Sources */,
 				5C0E6E2C1A958AE000222635 /* HistoryViewController.swift in Sources */,
 				5C6468381AAFD9E3002DE118 /* LogInViewController.swift in Sources */,
 				5C0E6E281A958AE000222635 /* AppDelegate.swift in Sources */,
+				5CF7109C1ABE769B006AACF9 /* getController.swift in Sources */,
 				5C80857F1AA030B40062617A /* HistoryTableCell.swift in Sources */,
 				5C70295F1AAA520900BA1D13 /* AppTheme.swift in Sources */,
+				5CEFCE7B1ABC626400460830 /* Bottlefeeding.swift in Sources */,
 				5C0E6E2A1A958AE000222635 /* NursingViewController.swift in Sources */,
 				5C7029681AAA577900BA1D13 /* DayTheme.swift in Sources */,
 				5C8085811AA04C2C0062617A /* TimeIntervalFormatter.swift in Sources */,
+				5CF7109E1ABE782C006AACF9 /* UserService.swift in Sources */,
+				5CEFCE7F1ABCCB2200460830 /* BottleViewController.swift in Sources */,
 				5C7029661AAA577100BA1D13 /* NightTheme.swift in Sources */,
-				5CD8DE2C1AAA2F5200490BA0 /* User.swift in Sources */,
 				5C0E6E541A9591D800222635 /* Timer.swift in Sources */,
-				5C6468361AAFD829002DE118 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +608,7 @@
 					"$(inherited)",
 					/Users/chrismontrois/Development/personal/nursemaid/Carthage/Build/iOS,
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Nursemaid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -548,6 +627,7 @@
 					"$(inherited)",
 					/Users/chrismontrois/Development/personal/nursemaid/Carthage/Build/iOS,
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Nursemaid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -566,6 +646,7 @@
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -588,6 +669,7 @@
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NursemaidTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

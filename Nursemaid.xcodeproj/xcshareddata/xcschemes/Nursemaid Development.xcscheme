@@ -84,33 +84,13 @@
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "API_SERVER"
-            value = "http://cmontrois.local:3000"
+            key = "PARSE_APP_ID"
+            value = "gNXpafvibgmxtkg7D4dxcyUSapb5pemNYq0obHzj"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "API_VERSION"
-            value = "v1"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "IS_FIRST_LOAD"
-            value = "true"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "USER_EMAIL"
-            value = "chris@chrismontrois.net"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "USER_PASSWORD"
-            value = "12345"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "USER_ID"
-            value = "u1"
+            key = "PARSE_CLIENT_KEY"
+            value = "jPnYVKcooGPB0BNQT86pv5GhSF6kB9SVP2GbA1LP"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

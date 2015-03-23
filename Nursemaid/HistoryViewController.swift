@@ -1,8 +1,15 @@
 import UIKit
 
+struct HistoryItem {
+  var id: String
+  var label: String
+  var date: NSDate
+  var type: String
+}
+
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Themeable {
 
-  var breastFeedings = [BreastFeeding]()
+  var items: [HistoryItem] = []
   let timeOfDayFormatter = NSDateFormatter()
 
   @IBOutlet weak var tableView: UITableView!
@@ -25,35 +32,54 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   }
 
   func fetchData(callback: () -> ()) {
-    BreastFeedingSvc.all(CurrentUser) { err, results in
-      if err == nil {
-        self.breastFeedings = results.sorted { $0.endTime.timeIntervalSince1970 > $1.endTime.timeIntervalSince1970 }
-      }
+    items = []
+    var remaining = 2
 
-      callback()
+    BreastSvc.all { err, breastfeedings in
+      self.items += breastfeedings.map(self.breastfeedingToItem)
+
+      if --remaining == 0 {
+        callback()
+      }
     }
+
+    BottleSvc.all { err, bottlefeedings in
+      self.items += bottlefeedings.map(self.bottlefeedingToItem)
+
+      if --remaining == 0 {
+        callback()
+      }
+    }
+  }
+
+  func breastfeedingToItem(feeding: Breastfeeding) -> HistoryItem {
+    let leftTime = TimeIntervalFormatter.format(Int(feeding.leftSideSeconds))
+    let rightTime = TimeIntervalFormatter.format(Int(feeding.rightSideSeconds))
+    let label = "(L) \(leftTime) (R) \(rightTime)"
+    return HistoryItem(id: feeding.id, label: label, date: feeding.endTime, type: "breast")
+  }
+
+  func bottlefeedingToItem(feeding: Bottlefeeding) -> HistoryItem {
+    let label = "\(feeding.ounces)oz"
+    return HistoryItem(id: feeding.id, label: label, date: feeding.endTime, type: "bottle")
   }
 
   // Protocol: Themeable
 
-  func applyTheme() {
-    let theme = Appearance.theme
-  }
+  func applyTheme() {}
 
   // Protocol: UITableViewDataSource
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return breastFeedings.count
+    return items.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let item = breastFeedings[indexPath.item] as BreastFeeding
-    let leftTime = TimeIntervalFormatter.format(Int(item.leftSideSeconds))
-    let rightTime = TimeIntervalFormatter.format(Int(item.rightSideSeconds))
+    let item = items[indexPath.item] as HistoryItem
 
     var cell = tableView.dequeueReusableCellWithIdentifier("historyTableCell") as HistoryTableCell
-    cell.titleLabel.text = "(L) \(leftTime) (R) \(rightTime)"
-    cell.dateLabel.text = timeOfDayFormatter.stringFromDate(item.endTime)
+    cell.titleLabel.text = item.label
+    cell.dateLabel.text = timeOfDayFormatter.stringFromDate(item.date)
     return cell
   }
 
@@ -63,10 +89,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
-      let item = breastFeedings[indexPath.item]
-      breastFeedings.removeAtIndex(indexPath.item)
+      let item = items[indexPath.item]
+      items.removeAtIndex(indexPath.item)
 
-      BreastFeedingSvc.remove(CurrentUser, id: item.id) { err in }
+      if item.type == "breast" {
+        BreastSvc.remove(item.id) { err in }
+      } else if item.type == "bottle" {
+        BottleSvc.remove(item.id) { err in }
+      }
 
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
